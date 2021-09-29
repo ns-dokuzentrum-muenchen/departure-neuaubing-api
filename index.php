@@ -2,5 +2,5 @@
 
     departure neuaubing, ns-dokumentationszentrum münchen
 
-    coming soon...
+    coming soon
 </pre>
