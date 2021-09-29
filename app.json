@@ -1,5 +1,7 @@
 {
-  "dokku": {
-    "postdeploy": "dokku ps:restart api"
+  "scripts": {
+    "dokku": {
+      "postdeploy": "dokku ps:restart api"
+    }
   }
 }
