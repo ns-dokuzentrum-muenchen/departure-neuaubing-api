@@ -1,1 +1,1 @@
-worker: echo "It's all here"
+release: echo "It's all here"
