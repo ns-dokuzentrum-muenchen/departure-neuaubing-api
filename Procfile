@@ -1,1 +1,1 @@
-api: echo "It's all here"
+worker: echo "It's all here"
