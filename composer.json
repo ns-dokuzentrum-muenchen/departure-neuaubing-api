@@ -1,0 +1,10 @@
+{
+    "name": "ns-doku/departure-neuaubing-api",
+    "authors": [
+        {
+            "name": "N Kort",
+            "email": "studio@n-kort.net"
+        }
+    ],
+    "require": {}
+}
