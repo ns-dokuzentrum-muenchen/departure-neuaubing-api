@@ -1,0 +1,5 @@
+{
+  "dokku": {
+    "postdeploy": "dokku ps:restart api"
+  }
+}
