@@ -1,5 +1,5 @@
 <pre>
 
-    departure neuaubing
+    departure neuaubing, ns-dokumentationszentrum münchen
 </pre>
 
