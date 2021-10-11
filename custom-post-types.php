@@ -12,10 +12,30 @@ function create_post_types () {
       'public' => true,
       'has_archive' => true,
       'rewrite' => array(
-        'slug' => 'projekt'
+        'slug' => 'projekte'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'excerpt'),
       'menu_icon' => 'dashicons-layout',
+      'menu_position' => 4
+    )
+  );
+
+  register_post_type('person',
+    array(
+      'rest_base' => 'personen',
+      'labels' => array(
+        'name' => __('Personen'),
+        'singular_name' => __('Person'),
+        'add_new_item' => __('Neue Person')
+      ),
+      'show_in_rest' => true,
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array(
+        'slug' => 'personen'
+      ),
+      'supports' => array('title', 'editor', 'author', 'revisions', 'excerpt'),
+      'menu_icon' => 'dashicons-admin-users',
       'menu_position' => 4
     )
   );
