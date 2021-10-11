@@ -18,7 +18,7 @@ add_action('init', function () {
 // acf things
 if (function_exists('acf_add_options_page')) {
   acf_add_options_page(array(
-    'page_title' => __('Site Settings'),
+    'page_title' => __('Website-Einstellungen'),
     'position' => 4.3,
     'autoload' => true
   ));
@@ -54,5 +54,6 @@ function get_fields_recursive ($item) {
   }
 }
 
+require 'custom-post-types.php';
 require 'custom-endpoints.php';
 require 'custom-hooks.php';
