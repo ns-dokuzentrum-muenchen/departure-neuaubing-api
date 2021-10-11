@@ -1,4 +1,6 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+
 // IMAGES
 // add_theme_support('post-thumbnails');
 // add_image_size('small', 300, 300);
