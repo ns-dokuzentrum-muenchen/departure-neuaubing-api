@@ -18,7 +18,7 @@ add_action('init', function () {
 // acf things
 if (function_exists('acf_add_options_page')) {
   acf_add_options_page(array(
-    'page_title' => __('Website-Einstellungen'),
+    'page_title' => __('Einstellungen'),
     'position' => 4.3,
     'autoload' => true
   ));

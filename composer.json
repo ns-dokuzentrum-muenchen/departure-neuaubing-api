@@ -6,5 +6,7 @@
             "email": "studio@n-kort.net"
         }
     ],
-    "require": {}
+    "require": {
+        "php": "^8.0.11"
+    }
 }
