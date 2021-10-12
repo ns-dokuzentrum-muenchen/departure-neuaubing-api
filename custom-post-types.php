@@ -96,7 +96,7 @@ function create_post_types () {
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
       'taxonomoies' => array('category', 'post_tag'),
-      'menu_icon' => 'dashicons-map',
+      'menu_icon' => 'dashicons-location',
       'menu_position' => 4
     )
   );
