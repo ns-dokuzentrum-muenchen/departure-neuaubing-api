@@ -14,7 +14,8 @@ function create_post_types () {
       'rewrite' => array(
         'slug' => 'projekte'
       ),
-      'supports' => array('title', 'editor', 'author', 'revisions', 'excerpt'),
+      'supports' => array('title', 'editor', 'author', 'revisions'),
+      'taxonomies' => array('post_tag'),
       'menu_icon' => 'dashicons-layout',
       'menu_position' => 4
     )
@@ -32,31 +33,33 @@ function create_post_types () {
       'rewrite' => array(
         'slug' => 'kuenstlerinnen'
       ),
-      'supports' => array('title', 'editor', 'author', 'revisions', 'excerpt'),
+      'supports' => array('title', 'editor', 'author', 'revisions'),
+      'taxonomies' => array('post_tag'),
       'menu_icon' => 'dashicons-art',
       'menu_position' => 4
     )
   );
 
-  register_post_type('person',
-    array(
-      'rest_base' => 'personen',
-      'labels' => array(
-        'name' => __('Personen'),
-        'singular_name' => __('Person'),
-        'add_new_item' => __('Neue Person')
-      ),
-      'show_in_rest' => true,
-      'public' => true,
-      'has_archive' => true,
-      'rewrite' => array(
-        'slug' => 'personen'
-      ),
-      'supports' => array('title', 'editor', 'author', 'revisions', 'excerpt'),
-      'menu_icon' => 'dashicons-admin-users',
-      'menu_position' => 4
-    )
-  );
+  // register_post_type('person',
+  //   array(
+  //     'rest_base' => 'personen',
+  //     'labels' => array(
+  //       'name' => __('Personen'),
+  //       'singular_name' => __('Person'),
+  //       'add_new_item' => __('Neue Person')
+  //     ),
+  //     'show_in_rest' => true,
+  //     'public' => true,
+  //     'has_archive' => true,
+  //     'rewrite' => array(
+  //       'slug' => 'personen'
+  //     ),
+  //     'supports' => array('title', 'editor', 'author', 'revisions'),
+  //     'menu_icon' => 'dashicons-admin-users',
+  //     'taxonomies' => array('post_tag'),
+  //     'menu_position' => 4
+  //   )
+  // );
 
   register_post_type('glossar',
     array(
@@ -71,8 +74,29 @@ function create_post_types () {
       'rewrite' => array(
         'slug' => 'glossar'
       ),
-      'supports' => array('title', 'editor', 'author', 'revisions', 'excerpt'),
+      'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
+      'taxonomies' => array('category', 'post_tag'),
       'menu_icon' => 'dashicons-media-text',
+      'menu_position' => 4
+    )
+  );
+
+  register_post_type('markierung',
+    array(
+      'label' => array(
+        'name' => __('Kartenmarkierung'),
+        'singular_name' => __('Markierung'),
+        'add_new_item' => __('Neue Markeriung')
+      ),
+      'show_in_rest' => true,
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array(
+        'slug' => 'markierungen'
+      ),
+      'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
+      'taxonomoies' => array('category', 'post_tag'),
+      'menu_icon' => 'dashicons-map',
       'menu_position' => 4
     )
   );

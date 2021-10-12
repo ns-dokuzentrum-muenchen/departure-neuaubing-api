@@ -10,6 +10,11 @@ header('Access-Control-Allow-Origin: *');
 //   ));
 // });
 
+// hide posts (not used)
+add_action('admin_menu', function () {
+  // remove_menu_page('edit.php');
+});
+
 // Page base
 add_action('init', function () {
   global $wp_rewrite;
