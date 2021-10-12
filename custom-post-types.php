@@ -95,7 +95,7 @@ function create_post_types () {
         'slug' => 'markierungen'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
-      'taxonomoies' => array('category', 'post_tag'),
+      'taxonomies' => array('category', 'post_tag'),
       'menu_icon' => 'dashicons-location',
       'menu_position' => 4
     )
