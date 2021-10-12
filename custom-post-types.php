@@ -83,7 +83,7 @@ function create_post_types () {
 
   register_post_type('markierung',
     array(
-      'label' => array(
+      'labels' => array(
         'name' => __('Kartenmarkierung'),
         'singular_name' => __('Markierung'),
         'add_new_item' => __('Neue Markeriung')
