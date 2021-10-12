@@ -20,6 +20,24 @@ function create_post_types () {
     )
   );
 
+  register_post_type('kuenstler',
+    array(
+      'rest_base' => 'kuenstlerinnen',
+      'labels' => array(
+        'name' => __('Künstler*innen')
+      ),
+      'show_in_rest' => true,
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array(
+        'slug' => 'kuenstlerinnen'
+      ),
+      'supports' => array('title', 'editor', 'author', 'revisions', 'excerpt'),
+      'menu_icon' => 'dashicons-art',
+      'menu_position' => 4
+    )
+  );
+
   register_post_type('person',
     array(
       'rest_base' => 'personen',
@@ -58,7 +76,6 @@ function create_post_types () {
       'menu_position' => 4
     )
   );
-
 }
 
 add_action( 'init', 'create_post_types' );
