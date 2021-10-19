@@ -23,6 +23,11 @@ add_action('init', function () {
 });
 
 // acf things
+// function my_acf_init () {
+//   acf_update_setting('google_api_key', 'xxx'); // TODO: need a key?
+// }
+// add_action('acf/init', 'my_acf_init');
+
 if (function_exists('acf_add_options_page')) {
   acf_add_options_page(array(
     'page_title' => __('Einstellungen'),

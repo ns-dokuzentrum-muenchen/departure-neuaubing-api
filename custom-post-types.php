@@ -20,6 +20,26 @@ function create_post_types () {
       'menu_position' => 4
     )
   );
+  register_post_type('int-projekt',
+    array(
+      'rest_base' => 'int-projekte',
+      'labels' => array(
+        'name' => __('Projekte (Version)'),
+        'singular_name' => __('Projekt'),
+        'add_new_item' => __('Neues Projekt')
+      ),
+      'show_in_rest' => true,
+      'public' => true,
+      'has_archive' => false,
+      'rewrite' => array(
+        'slug' => 'int-projekte'
+      ),
+      'supports' => array('title', 'editor', 'author', 'revisions'),
+      // 'taxonomies' => array('post_tag'),
+      'menu_icon' => 'dashicons-translation',
+      'menu_position' => 4
+    )
+  );
 
   register_post_type('kuenstler',
     array(
