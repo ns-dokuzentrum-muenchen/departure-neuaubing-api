@@ -70,6 +70,18 @@ function get_fields_recursive ($item) {
   }
 }
 
+// enable some comments
+function default_comments_on ($data) {
+  $pt = $data['post_type'];
+
+  if ($pt == 'glossar' || $pt == 'markierung') {
+    $data['comment_status'] = 'open';
+  }
+
+  return $data;
+}
+add_filter('wp_insert_post_data', 'default_comments_on');
+
 require 'custom-post-types.php';
 require 'custom-endpoints.php';
 require 'custom-hooks.php';
