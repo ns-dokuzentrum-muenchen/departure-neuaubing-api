@@ -80,6 +80,26 @@ function create_post_types () {
   //     'menu_position' => 4
   //   )
   // );
+  register_post_type('begriff',
+    array(
+      'rest_base' => 'begriffe',
+      'labels' => array(
+        'name' => __('Begriffe'),
+        'singular_name' => __('Begriff'),
+        'add_new_item' => __('Neuer Begriff')
+      ),
+      'show_in_rest' => true,
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array(
+        'slug' => 'begriffe'
+      ),
+      'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
+      'taxonomies' => array('category', 'post_tag'),
+      'menu_icon' => 'dashicons-media-text',
+      'menu_position' => 4
+    )
+  );
 
   register_post_type('glossar',
     array(
