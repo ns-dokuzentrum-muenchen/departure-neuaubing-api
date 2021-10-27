@@ -82,6 +82,8 @@ function default_comments_on ($data) {
 }
 add_filter('wp_insert_post_data', 'default_comments_on');
 
+add_filter('rest_allow_anonymous_comments', '__return_true');
+
 require 'custom-post-types.php';
 require 'custom-endpoints.php';
 require 'custom-hooks.php';

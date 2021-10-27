@@ -23,9 +23,21 @@ function dn_settings () {
   return $response;
 }
 
+function comment_nonce () {
+  $nonce = wp_create_nonce('hcaptcha_comment_form_nonce'); // ??
+  $data = array( 'nonce' => $nonce );
+  $response = new WP_REST_Response($data);
+  $response->set_status(200);
+  return $response;
+}
+
 add_action('rest_api_init', function () {
   register_rest_route('dn/v1', '/settings', array(
     'methods' => WP_REST_Server::READABLE,
     'callback' => 'dn_settings',
+  ));
+  register_rest_route('dn/v1', '/comment-nonce', array(
+    'methods' => WP_REST_Server::READABLE,
+    'callback' => 'comment_nonce'
   ));
 });
