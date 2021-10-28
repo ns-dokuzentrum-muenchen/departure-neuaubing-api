@@ -1,5 +1,8 @@
 <?php
-header('Access-Control-Allow-Origin: *');
+// sort cors (*)
+$host = $_SERVER['https'] === 'on' ? 'https://' : 'http://';
+$host .= $_SERVER['HTTP_HOST'];
+header('Access-Control-Allow-Origin: ' . $host);
 
 // IMAGES
 // add_theme_support('post-thumbnails');
