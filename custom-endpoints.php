@@ -83,13 +83,13 @@ add_action('rest_api_init', function () {
     'methods' => WP_REST_Server::READABLE,
     'callback' => 'comment_nonce'
   ));
-  // register_rest_route('dn/v1', '/what', array(
-  //   'methods' => WP_REST_Server::READABLE,
-  //   'callback' => function () {
-  //     $serv = $_SERVER;
-  //     $response = new WP_REST_Response($serv);
-  //     $response->set_status(200);
-  //     return $response;
-  //   }
-  // ));
+  register_rest_route('dn/v1', '/what', array(
+    'methods' => WP_REST_Server::READABLE,
+    'callback' => function () {
+      $serv = $_SERVER;
+      $response = new WP_REST_Response($serv);
+      $response->set_status(200);
+      return $response;
+    }
+  ));
 });
