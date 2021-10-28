@@ -49,9 +49,10 @@ function dn_search (WP_REST_Request $request) {
       $post->link = get_the_permalink($post->ID);
       $post->slug = $post->post_name;
 
-      $text = $acf['biographie'] ?? $acf['description']; // add more?
-
-      $post->content_highlighted = relevanssi_highlight_terms($text, $keyword, true);
+      if ($acf) {
+        $text = $acf['biographie'] ?? $acf['description']; // add more?
+        $post->content_highlighted = relevanssi_highlight_terms($text, $keyword, true);
+      }
     }
     $response = json_encode($query->posts);
     $response = json_decode($response, true);
