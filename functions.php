@@ -1,7 +1,7 @@
 <?php
 // sort cors (*)
-$host = $_SERVER['https'] === 'on' ? 'https://' : 'http://';
-$host .= $_SERVER['HTTP_HOST'];
+$host = $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
+$host .= $_SERVER['HTTP_ORIGIN'] ?? $_SERVER['HTTP_HOST'];
 header('Access-Control-Allow-Origin: ' . $host);
 
 // IMAGES
