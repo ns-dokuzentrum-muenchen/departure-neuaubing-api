@@ -23,6 +23,41 @@ function dn_settings () {
   return $response;
 }
 
+function dn_search (WP_REST_Request $request) {
+  $keyword = sanitize_text_field($request['s']);
+
+  if ($keyword == null) {
+    return new WP_Error('no_posts', 'Nothing found', array('status' => 404));
+  }
+
+  $args = array(
+    's' => $keyword
+  );
+  $query = new WP_Query();
+  $query->parse_query($args);
+  relevanssi_do_query($query);
+
+  if ($query->post_count) {
+    foreach ($query->posts as $post) {
+      $post->id = intval($post->ID);
+      $post->categories = wp_get_post_categories($post->ID, array('fields' => 'all'));
+      $post->tags = wp_get_post_tags($post->ID);
+      $post->acf = get_fields($post->ID);
+      $post->title_highlighted = relevanssi_highlight_terms(html_entity_decode($post->post_title), $keyword);
+      $post->link = get_the_permalink($post->ID);
+      $post->slug = $post->post_name;
+
+      // $autor = isset($post->acf['autor']) ? $post->acf['autor'] : get_author_name($post->post_author);
+      // $post->author = relevanssi_highlight_terms($autor, $keyword);
+    }
+    $response = json_encode($query->posts);
+    $response = json_decode($response, true);
+    return new WP_REST_RESPONSE($response, 200);
+  } else {
+    return new WP_Error('no_posts', 'Nothing found', array('status' => 404));
+  }
+}
+
 function comment_nonce () {
   $nonce = wp_create_nonce('hcaptcha_comment_form_nonce'); // ??
   $data = array( 'nonce' => $nonce );
@@ -36,6 +71,11 @@ add_action('rest_api_init', function () {
     'methods' => WP_REST_Server::READABLE,
     'callback' => 'dn_settings',
   ));
+  register_rest_route('dn/v1', '/suche', array(
+    'methods' => WP_REST_Server::READABLE,
+    'callback' => 'dn_search'
+  ));
+
   register_rest_route('dn/v1', '/comment-nonce', array(
     'methods' => WP_REST_Server::READABLE,
     'callback' => 'comment_nonce'
