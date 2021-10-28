@@ -39,16 +39,19 @@ function dn_search (WP_REST_Request $request) {
 
   if ($query->post_count) {
     foreach ($query->posts as $post) {
+      $acf = get_fields($post->ID);
+
       $post->id = intval($post->ID);
       $post->categories = wp_get_post_categories($post->ID, array('fields' => 'all'));
       $post->tags = wp_get_post_tags($post->ID);
-      $post->acf = get_fields($post->ID);
+      $post->acf = $acf;
       $post->title_highlighted = relevanssi_highlight_terms(html_entity_decode($post->post_title), $keyword);
       $post->link = get_the_permalink($post->ID);
       $post->slug = $post->post_name;
 
-      // $autor = isset($post->acf['autor']) ? $post->acf['autor'] : get_author_name($post->post_author);
-      // $post->author = relevanssi_highlight_terms($autor, $keyword);
+      $text = $acf['biographie'] ?? $acf['description']; // add more?
+
+      $post->content_highlighted = relevanssi_highlight_terms($text, $keyword, true);
     }
     $response = json_encode($query->posts);
     $response = json_decode($response, true);
