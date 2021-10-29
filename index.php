@@ -4,3 +4,5 @@
 
     coming soon
 </pre>
+
+<?php the_content() ?>
