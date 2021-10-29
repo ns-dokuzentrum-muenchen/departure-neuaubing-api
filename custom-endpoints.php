@@ -114,13 +114,21 @@ function handle_login (WP_REST_Request $request) {
 
   if( $error_token ) {
     $msg = apply_filters( 'wpa_invalid_token_error', __('Your token has probably expired. Please try again.', 'passwordless-login') );
-  } else {
-    $msg = 'You are logged in';
-  }
-
-  $response = new WP_REST_Response(array('msg' => $msg));
+    $response = new WP_REST_Response(array('msg' => $msg));
   $response->set_status(200);
   return $response;
+  } else {
+    $current_user = wp_get_current_user();
+    $msg = apply_filters('wpa_success_login_msg', sprintf(__( 'You are currently logged in as %1$s. %2$s', 'passwordless-login' )));
+    $msg .= $current_user->display_name;
+
+    $data = Auth::generate_token($current_user, true);
+
+    // $response = new WP_REST_Response(array('msg' => $msg));
+    $response = new WP_REST_Response($data);
+    $response->set_status(200);
+    return $response;
+  }
 }
 
 add_action('rest_api_init', function () {
@@ -133,10 +141,10 @@ add_action('rest_api_init', function () {
     'callback' => 'dn_search'
   ));
 
-  register_rest_route('dn/v1', '/comment-nonce', array(
-    'methods' => WP_REST_Server::READABLE,
-    'callback' => 'comment_nonce'
-  ));
+  // register_rest_route('dn/v1', '/comment-nonce', array(
+  //   'methods' => WP_REST_Server::READABLE,
+  //   'callback' => 'comment_nonce'
+  // ));
 
   register_rest_route('dn/v1', '/login', array(
     'methods' => WP_REST_Server::CREATABLE,
@@ -145,6 +153,17 @@ add_action('rest_api_init', function () {
   register_rest_route('dn/v1', '/login', array(
     'methods' => WP_REST_Server::READABLE,
     'callback' => 'handle_login'
+  ));
+
+  register_rest_route('dn/v1', '/nonce', array(
+    'methods' => WP_REST_Server::READABLE,
+    'callback' => function () {
+      // $response = new WP_REST_Response(wp_create_nonce('wp_rest'));
+      $response = new WP_REST_Response(wp_get_current_user());
+      // wp_verify_nonce()
+      $response->set_status(200);
+      return $response;
+    }
   ));
   // register_rest_route('dn/v1', '/what', array(
   //   'methods' => WP_REST_Server::READABLE,
@@ -155,4 +174,10 @@ add_action('rest_api_init', function () {
   //     return $response;
   //   }
   // ));
+});
+
+
+add_filter('jwt_auth_whitelist', function ($endpoints) {
+  array_push($endpoints,'/wp-json/dn/v1/*');
+  return $endpoints;
 });
