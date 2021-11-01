@@ -5,4 +5,4 @@
     coming soon
 </pre>
 
-<?php the_content() ?>
+<?php //  the_content() ?>
