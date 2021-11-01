@@ -107,33 +107,42 @@ function passwordless_login (WP_REST_Request $request) {
 
   $response = new WP_REST_Response(array('msg' => $msg));
   $response->set_status($status);
+
   return $response;
 }
 
-// function handle_login (WP_REST_Request $request) {
-//   var_dump($request);
-//   $error_token = ( isset( $request['wpa_error_token']) ) ? $error_token = sanitize_key( $request['wpa_error_token'] ) : false;
+function dn_register (WP_REST_Request $request) {
+  $body = $request->get_json_params();
+  $username = sanitize_text_field( $body['username'] );
+  $email = sanitize_email( $body['email'] );
+  $nonce = sanitize_key( $body['nonce'] );
+  $return_to = esc_url_raw( $body['return_to'] );
 
-//   if( $error_token ) {
-//     $msg = apply_filters( 'wpa_invalid_token_error', __('Your token has probably expired. Please try again.', 'passwordless-login') );
-//     $response = new WP_REST_Response(array('msg' => $msg));
-//     $response->set_status(200);
-//     return $response;
-//   } else {
-//     $current_user = wp_get_current_user();
-//     print_r($current_user);
-//     $msg = apply_filters('wpa_success_login_msg', __( 'You are currently logged in as %1$s. %2$s', 'passwordless-login')) . $current_user->display_name;
+  $response = new WP_REST_Response();
 
-//     // // $data = (new JWTAuth\Auth)->generate_token($user, true);
-//     // $r = new WP_REST_Request( 'POST', '/jwt-auth/v1/token');
-//     // $data = rest_do_request($r);
+  if ($username && $email) {
+    $pass = random_bytes(32);
+    $user = wp_create_user($username, $pass, $email);
 
-//     $response = new WP_REST_Response(array('msg' => $msg));
-//     // $response = new WP_REST_Response($data);
-//     $response->set_status(200);
-//     return $response;
-//   }
-// }
+    if (is_wp_error($user)) {
+      $response->set_status(400);
+      return $response;
+    } else {
+      // user has been created
+      $sent_link = wpa_send_link($username, $nonce, $return_to);
+
+      if (!is_wp_error($sent_link)) {
+        $msg = apply_filters('wpa_success_link_msg', __('Please check your email. You will soon receive an email with a login link.', 'passwordless-login'));
+
+        $response->set_data(array('msg' => $msg));
+        return $response;
+      }
+    }
+  }
+
+  $response->set_status(400);
+  return $response;
+}
 
 add_action('rest_api_init', function () {
   register_rest_route('dn/v1', '/settings', array(
@@ -149,10 +158,10 @@ add_action('rest_api_init', function () {
     'methods' => WP_REST_Server::CREATABLE,
     'callback' => 'passwordless_login'
   ));
-  // register_rest_route('dn/v1', '/login', array(
-  //   'methods' => WP_REST_Server::READABLE,
-  //   'callback' => 'handle_login'
-  // ));
+  register_rest_route('dn/v1', '/register', array(
+    'methods' => WP_REST_Server::CREATABLE,
+    'callback' => 'dn_register'
+  ));
 });
 
 add_filter('jwt_auth_whitelist', function ($endpoints) {
