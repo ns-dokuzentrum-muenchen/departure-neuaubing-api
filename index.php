@@ -9,7 +9,4 @@
 
     coming soon
 
-    <?php echo wp_registration_url(); ?>
 </pre>
-
-<?php wp_register(); ?>
