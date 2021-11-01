@@ -1,8 +1,16 @@
 <?php
 // sort cors (*)
-$host = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
-$host .= $_SERVER['HTTP_ORIGIN'] ?? $_SERVER['HTTP_HOST'];
-header('Access-Control-Allow-Origin: ' . $host);
+// $host = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
+// $host .= $_SERVER['HTTP_ORIGIN'] ?? $_SERVER['HTTP_HOST'];
+// header('Access-Control-Allow-Origin: ' . $host);
+$origins = ['http://localhost:8080', 'https://departure-neuaubing-stage.netlify.app'];
+
+if (isset($_SERVER['HTTP_ORIGIN']) && in_array($_SERVER['HTTP_ORIGIN'], $origins)) {
+  header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
+  header('Access-Control-Allow-Credentials: true');
+  header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
+  header('Access-Control-Expose-Headers: X-WP-Nonce, X-Auth-Token, X-Login-Message');
+}
 
 // IMAGES
 // add_theme_support('post-thumbnails');
@@ -24,6 +32,17 @@ add_action('init', function () {
   // print_r($wp_rewrite);
   $wp_rewrite->page_structure = 'pages/%pagename%';
 });
+
+// prevent commenters setting name/email/auther etc
+add_filter('rest_pre_dispatch', function ($response, $server, WP_REST_Request $request) {
+  if ($request->get_route() == '/wp/v2/comments' && $request->get_method() === 'POST') {
+    // TODO just throw an error?
+    $request->offsetUnset('author');
+    $request->offsetUnset('author_name');
+    $request->offsetUnset('author_email');
+  }
+  return $response;
+}, 0, 3);
 
 // acf things
 // function my_acf_init () {
@@ -84,8 +103,7 @@ function default_comments_on ($data) {
   return $data;
 }
 add_filter('wp_insert_post_data', 'default_comments_on');
-
-add_filter('rest_allow_anonymous_comments', '__return_true');
+// add_filter('rest_allow_anonymous_comments', '__return_true');
 
 require 'custom-post-types.php';
 require 'custom-endpoints.php';

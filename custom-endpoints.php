@@ -62,17 +62,18 @@ function dn_search (WP_REST_Request $request) {
   }
 }
 
-function comment_nonce () {
-  $nonce = wp_create_nonce('hcaptcha_comment_form_nonce'); // ??
-  $data = array( 'nonce' => $nonce );
-  $response = new WP_REST_Response($data);
-  $response->set_status(200);
-  return $response;
-}
+// function comment_nonce () {
+//   $nonce = wp_create_nonce('hcaptcha_comment_form_nonce'); // ??
+//   $data = array( 'nonce' => $nonce );
+//   $response = new WP_REST_Response($data);
+//   $response->set_status(200);
+//   return $response;
+// }
 
 function passwordless_login (WP_REST_Request $request) {
   $account = ( isset( $request['user_email_username']) ) ? $account = sanitize_text_field( $request['user_email_username'] ) : false;
-  $nonce = wp_create_nonce('wpa_passwordless_login_request');
+  $nonce = ( isset( $_POST['nonce']) ) ? $nonce = sanitize_key( $_POST['nonce'] ) : false;
+  $return_to = ( isset( $_POST['return_to']) ) ? $return_to = esc_url_raw( $_POST['return_to'] ) : false;
 
   $msg = '';
   $status = 200;
@@ -82,7 +83,7 @@ function passwordless_login (WP_REST_Request $request) {
     $status = 400;
   } else {
     if (function_exists('wpa_send_link')) {
-      $sent_link = wpa_send_link($account, $nonce);
+      $sent_link = wpa_send_link($account, $nonce, $return_to);
     } else {
       $msg = '404 Not found';
       $status = 404;
@@ -109,30 +110,30 @@ function passwordless_login (WP_REST_Request $request) {
   return $response;
 }
 
-function handle_login (WP_REST_Request $request) {
-  // var_dump($request);
-  // $error_token = ( isset( $request['wpa_error_token']) ) ? $error_token = sanitize_key( $request['wpa_error_token'] ) : false;
+// function handle_login (WP_REST_Request $request) {
+//   var_dump($request);
+//   $error_token = ( isset( $request['wpa_error_token']) ) ? $error_token = sanitize_key( $request['wpa_error_token'] ) : false;
 
-  // if( $error_token ) {
-  //   $msg = apply_filters( 'wpa_invalid_token_error', __('Your token has probably expired. Please try again.', 'passwordless-login') );
-  //   $response = new WP_REST_Response(array('msg' => $msg));
-  //   $response->set_status(200);
-  //   return $response;
-  // } else {
-  //   $current_user = wp_get_current_user();
-  //   print_r($current_user);
-  //   $msg = apply_filters('wpa_success_login_msg', __( 'You are currently logged in as %1$s. %2$s', 'passwordless-login')) . $current_user->display_name;
+//   if( $error_token ) {
+//     $msg = apply_filters( 'wpa_invalid_token_error', __('Your token has probably expired. Please try again.', 'passwordless-login') );
+//     $response = new WP_REST_Response(array('msg' => $msg));
+//     $response->set_status(200);
+//     return $response;
+//   } else {
+//     $current_user = wp_get_current_user();
+//     print_r($current_user);
+//     $msg = apply_filters('wpa_success_login_msg', __( 'You are currently logged in as %1$s. %2$s', 'passwordless-login')) . $current_user->display_name;
 
-  //   // // $data = (new JWTAuth\Auth)->generate_token($user, true);
-  //   // $r = new WP_REST_Request( 'POST', '/jwt-auth/v1/token');
-  //   // $data = rest_do_request($r);
+//     // // $data = (new JWTAuth\Auth)->generate_token($user, true);
+//     // $r = new WP_REST_Request( 'POST', '/jwt-auth/v1/token');
+//     // $data = rest_do_request($r);
 
-  //   $response = new WP_REST_Response(array('msg' => $msg));
-  //   // $response = new WP_REST_Response($data);
-  //   $response->set_status(200);
-  //   return $response;
-  // }
-}
+//     $response = new WP_REST_Response(array('msg' => $msg));
+//     // $response = new WP_REST_Response($data);
+//     $response->set_status(200);
+//     return $response;
+//   }
+// }
 
 add_action('rest_api_init', function () {
   register_rest_route('dn/v1', '/settings', array(
@@ -148,13 +149,13 @@ add_action('rest_api_init', function () {
     'methods' => WP_REST_Server::CREATABLE,
     'callback' => 'passwordless_login'
   ));
-  register_rest_route('dn/v1', '/login', array(
-    'methods' => WP_REST_Server::READABLE,
-    'callback' => 'handle_login'
-  ));
+  // register_rest_route('dn/v1', '/login', array(
+  //   'methods' => WP_REST_Server::READABLE,
+  //   'callback' => 'handle_login'
+  // ));
 });
 
 add_filter('jwt_auth_whitelist', function ($endpoints) {
-  array_push($endpoints,'/wp-json/dn/v1/*');
+  array_push($endpoints, '/wp-json/dn/v1/*');
   return $endpoints;
 });
