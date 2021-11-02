@@ -125,6 +125,7 @@ function dn_register (WP_REST_Request $request) {
     $user = wp_create_user($username, $pass, $email);
 
     if (is_wp_error($user)) {
+      $response->set_data(array('msg' => 'Benutzer konnte mit diesen Angaben nicht registriert werden.'));
       $response->set_status(400);
       return $response;
     } else {
@@ -140,6 +141,7 @@ function dn_register (WP_REST_Request $request) {
     }
   }
 
+  $response->set_data(array('msg' => 'Fehler. Bitte überprüfen Sie das Formular.'));
   $response->set_status(400);
   return $response;
 }
