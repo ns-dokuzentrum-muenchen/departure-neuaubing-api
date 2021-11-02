@@ -128,7 +128,7 @@ function dn_register (WP_REST_Request $request) {
       $response->set_status(400);
       return $response;
     } else {
-      // user has been created
+      // user has been created, send a login link
       $sent_link = wpa_send_link($username, $nonce, $return_to);
 
       if (!is_wp_error($sent_link)) {
