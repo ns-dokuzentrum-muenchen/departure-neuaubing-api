@@ -15,7 +15,8 @@ function dn_settings () {
 
   $data = array(
     'cover' => get_field('image', 'options'),
-    'video' => get_field('video', 'options')
+    'video' => get_field('video', 'options'),
+    'projekte' => get_field('projekte', 'options')
   );
 
   $response = new WP_REST_Response($data);
