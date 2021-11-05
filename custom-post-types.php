@@ -60,26 +60,6 @@ function create_post_types () {
     )
   );
 
-  // register_post_type('person',
-  //   array(
-  //     'rest_base' => 'personen',
-  //     'labels' => array(
-  //       'name' => __('Personen'),
-  //       'singular_name' => __('Person'),
-  //       'add_new_item' => __('Neue Person')
-  //     ),
-  //     'show_in_rest' => true,
-  //     'public' => true,
-  //     'has_archive' => true,
-  //     'rewrite' => array(
-  //       'slug' => 'personen'
-  //     ),
-  //     'supports' => array('title', 'editor', 'author', 'revisions'),
-  //     'menu_icon' => 'dashicons-admin-users',
-  //     'taxonomies' => array('post_tag'),
-  //     'menu_position' => 4
-  //   )
-  // );
   register_post_type('begriff',
     array(
       'rest_base' => 'begriffe',
@@ -134,7 +114,7 @@ function create_post_types () {
       'rewrite' => array(
         'slug' => 'markierungen'
       ),
-      'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
+      'supports' => array('title', 'editor', 'author', 'revisions', 'comments', 'thumbnail'),
       'taxonomies' => array('category', 'post_tag'),
       'menu_icon' => 'dashicons-location',
       'menu_position' => 4

@@ -13,7 +13,7 @@ if (isset($_SERVER['HTTP_ORIGIN']) && in_array($_SERVER['HTTP_ORIGIN'], $origins
 }
 
 // IMAGES
-// add_theme_support('post-thumbnails');
+add_theme_support('post-thumbnails');
 // add_image_size('small', 300, 300);
 // add_filter('image_size_names_choose', function ($sizes) {
 //   return array_merge($sizes, array(
@@ -104,6 +104,15 @@ function default_comments_on ($data) {
 }
 add_filter('wp_insert_post_data', 'default_comments_on');
 // add_filter('rest_allow_anonymous_comments', '__return_true');
+
+add_filter('user_has_cap', function ($all, $cap, $args, $user) {
+  if (is_user_logged_in() && $cap[0] == 'edit_posts') {
+    if ($user->caps['subscriber'] && $_SERVER['REQUEST_URI'] == '/wp-json/wp/v2/markierung') {
+      $all['edit_posts'] = 1;
+    }
+  }
+  return $all;
+}, 10, 4);
 
 require 'custom-post-types.php';
 require 'custom-endpoints.php';
