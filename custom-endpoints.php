@@ -189,7 +189,7 @@ add_action('rest_api_init', function () {
       global $geo_client;
 
       $ip = $_SERVER['REMOTE_ADDR'] ?? $_SERVER['REMOTE_ADDR'];
-      // $proxy = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'];
+      $proxy = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'];
       // $check = $proxy ? $proxy : $ip;
       $check = $ip;
       $city = null;
@@ -203,7 +203,7 @@ add_action('rest_api_init', function () {
         $lat = $loc->location->latitude;
         $lng = $loc->location->latitude;
       } catch (Exception $e) {
-        $err = $e;
+        $err = $e->getMessage();
         $city = 'Berlin';
         $lat = 52.4564;
         $lng = 13.3425;
@@ -214,6 +214,8 @@ add_action('rest_api_init', function () {
       $record = array(
         'city' => $city,
         'distance' => $distance,
+        'ip' => $ip,
+        'proxy' => $proxy,
         'error' => $err
       );
 
