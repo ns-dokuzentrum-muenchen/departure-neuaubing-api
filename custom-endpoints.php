@@ -171,6 +171,18 @@ add_action('rest_api_init', function () {
     'callback' => 'dn_register'
   ));
 
+  function getDistanceFromLatLonInKm($lat1, $lon1, $lat2, $lon2) {
+    $R = 6371; // Radius of the earth in km
+    $dLat = deg2rad($lat2 - $lat1);  // deg2rad below
+    $dLon = deg2rad($lon2 - $lon1);
+    $a = sin($dLat / 2) * sin($dLat / 2) +
+      cos(deg2rad($lat1)) * cos(deg2rad($lat2)) *
+      sin($dLon / 2) * sin($dLon / 2);
+    $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+    $d = $R * $c; // Distance in km
+    return $d;
+  }
+
   register_rest_route('dn/v1', '/geo', array(
     'methods' => WP_REST_Server::READABLE,
     'callback' => function () {
@@ -179,16 +191,30 @@ add_action('rest_api_init', function () {
       $ip = $_SERVER['REMOTE_ADDR'] ?? $_SERVER['REMOTE_ADDR'];
       $proxy = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'];
       $check = $proxy ? $proxy : $ip;
+      $city = null;
+      $lat = 0;
+      $lng = 0;
 
       try {
-        $record = $geo_client->city($check);
+        $loc = $geo_client->city($check);
+        $city = $loc['names']['de'];
+        $lat = $loc['location']['latitude'];
+        $lng = $loc['location']['latitude'];
       } catch (Exception $e) {
-        $record = null;
+        $city = 'Berlin';
+        $lat = 52.4564;
+        $lng = 13.3425;
       }
 
-      $response = new WP_REST_Response(array(
-        'record' => $record
-      ));
+      $distance = getDistanceFromLatLonInKm($lat, $lng, 48.150699, 11.427918);
+
+      $record = array(
+        'city' => $city,
+        'distance' => $distance
+      );
+
+      $response = new WP_REST_Response($record);
+      $response->set_status(200);
       return $response;
     }
   ));
