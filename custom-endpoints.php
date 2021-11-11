@@ -200,8 +200,9 @@ add_action('rest_api_init', function () {
       $ip = $_SERVER['REMOTE_ADDR'] ?? $_SERVER['REMOTE_ADDR'];
       $proxy = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'];
       $check = $proxy ? $proxy : $ip;
-      // $check = '23.88.111.56';
+      $check = '209.58.188.173';
       $city = null;
+      $country = null;
       $lat = 0;
       $lng = 0;
       $err = false;
@@ -211,6 +212,8 @@ add_action('rest_api_init', function () {
       try {
         $loc = $geo_client->city($check);
         $city = $loc->city->names;
+        $country = $loc->country->names;
+        // $city = $loc;
         $lat = $loc->location->latitude;
         $lng = $loc->location->longitude;
       } catch (Exception $e) {
@@ -229,6 +232,7 @@ add_action('rest_api_init', function () {
 
       $record = array(
         'city' => $city,
+        'country' => $country,
         'distance' => $distance
       );
 
