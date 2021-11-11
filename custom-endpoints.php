@@ -150,7 +150,7 @@ function dn_register (WP_REST_Request $request) {
 // geo
 require 'vendor/autoload.php';
 use GeoIp2\WebService\Client;
-$geo_client = new Client(482594, '8FGlhsaF0TdRPf5Z');
+$geo_client = new Client(482594, '8FGlhsaF0TdRPf5Z', ['en'], ['host' => 'geolite.info']);
 
 add_action('rest_api_init', function () {
   register_rest_route('dn/v1', '/settings', array(
@@ -174,9 +174,20 @@ add_action('rest_api_init', function () {
   register_rest_route('dn/v1', '/geo', array(
     'methods' => WP_REST_Server::READABLE,
     'callback' => function () {
+      global $geo_client;
+
+      $ip = $_SERVER['REMOTE_ADDR'] ?? $_SERVER['REMOTE_ADDR'];
+      $proxy = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'];
+      $check = $proxy ? $proxy : $ip;
+
+      try {
+        $record = $geo_client->city($check);
+      } catch (Exception $e) {
+        $record = null;
+      }
+
       $response = new WP_REST_Response(array(
-        'ip' => $_SERVER['REMOTE_ADDR'],
-        'proxy' => $_SERVER['HTTP_X_FORWARDED_FOR']
+        'record' => $record
       ));
       return $response;
     }
