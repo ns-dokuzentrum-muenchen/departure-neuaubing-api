@@ -206,14 +206,21 @@ add_action('rest_api_init', function () {
       $lng = 0;
       $err = false;
 
+      $response = new WP_REST_Response();
+
       try {
         $loc = $geo_client->city($check);
-        $city = $loc->city->names['de'];
+        $city = $loc->city->names;
         $lat = $loc->location->latitude;
         $lng = $loc->location->longitude;
       } catch (Exception $e) {
         $err = $e->getMessage();
-        $city = 'Berlin';
+        $city = ['de' => 'Berlin'];
+        $lat = 52.4564;
+        $lng = 13.3425;
+      } catch (Throwable $e) {
+        $err = $e->getMessage();
+        $city = ['de' => 'Berlin'];
         $lat = 52.4564;
         $lng = 13.3425;
       }
@@ -223,12 +230,13 @@ add_action('rest_api_init', function () {
       $record = array(
         'city' => $city,
         'distance' => $distance
-        // 'ip' => $ip,
-        // 'proxy' => $proxy,
-        // 'error' => $err
       );
 
-      $response = new WP_REST_Response($record);
+      if ($err) {
+        $record['msg'] = $err;
+      }
+
+      $response->set_data($record);
       $response->set_status(200);
       return $response;
     }
