@@ -190,7 +190,7 @@ add_action('rest_api_init', function () {
 
       $ip = $_SERVER['REMOTE_ADDR'] ?? $_SERVER['REMOTE_ADDR'];
       $proxy = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'];
-      // $check = $proxy ? $proxy : $ip;
+      $check = $proxy ? $proxy : $ip;
       $check = $ip;
       $city = null;
       $lat = 0;
