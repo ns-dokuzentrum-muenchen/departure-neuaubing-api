@@ -147,6 +147,11 @@ function dn_register (WP_REST_Request $request) {
   return $response;
 }
 
+// geo
+require 'vendor/autoload.php';
+use GeoIp2\WebService\Client;
+$geo_client = new Client(482594, '8FGlhsaF0TdRPf5Z');
+
 add_action('rest_api_init', function () {
   register_rest_route('dn/v1', '/settings', array(
     'methods' => WP_REST_Server::READABLE,
@@ -164,6 +169,17 @@ add_action('rest_api_init', function () {
   register_rest_route('dn/v1', '/register', array(
     'methods' => WP_REST_Server::CREATABLE,
     'callback' => 'dn_register'
+  ));
+
+  register_rest_route('dn/v1', '/geo', array(
+    'methods' => WP_REST_Server::READABLE,
+    'callback' => function () {
+      $response = new WP_REST_Response(array(
+        'ip' => $_SERVER['REMOTE_ADDR'],
+        'proxy' => $_SERVER['HTTP_X_FORWARDED_FOR']
+      ));
+      return $response;
+    }
   ));
 });
 
