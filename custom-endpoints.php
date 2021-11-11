@@ -197,9 +197,9 @@ add_action('rest_api_init', function () {
 
       try {
         $loc = $geo_client->city($check);
-        $city = $loc['names']['de'];
-        $lat = $loc['location']['latitude'];
-        $lng = $loc['location']['latitude'];
+        $city = $loc->names['de'];
+        $lat = $loc->location['latitude'];
+        $lng = $loc->location['latitude'];
       } catch (Exception $e) {
         $city = 'Berlin';
         $lat = 52.4564;
