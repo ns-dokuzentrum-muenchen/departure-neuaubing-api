@@ -183,6 +183,15 @@ add_action('rest_api_init', function () {
     return $d;
   }
 
+  function distance($lat1, $lon1, $lat2, $lon2) {
+    $p = 0.017453292519943295;    // Math.PI / 180
+    $a = 0.5 - cos(($lat2 - $lat1) * $p)/2 +
+            cos($lat1 * $p) * cos($lat2 * $p) *
+            (1 - cos(($lon2 - $lon1) * $p))/2;
+
+    return 12742 * asin(sqrt($a)); // 2 * R; R = 6371 km
+  }
+
   register_rest_route('dn/v1', '/geo', array(
     'methods' => WP_REST_Server::READABLE,
     'callback' => function () {
@@ -191,6 +200,7 @@ add_action('rest_api_init', function () {
       $ip = $_SERVER['REMOTE_ADDR'] ?? $_SERVER['REMOTE_ADDR'];
       $proxy = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'];
       $check = $proxy ? $proxy : $ip;
+      // $check = '23.88.111.56';
       $city = null;
       $lat = 0;
       $lng = 0;
@@ -198,9 +208,9 @@ add_action('rest_api_init', function () {
 
       try {
         $loc = $geo_client->city($check);
-        $city = $loc->city->names->de;
+        $city = $loc->city->names['de'];
         $lat = $loc->location->latitude;
-        $lng = $loc->location->latitude;
+        $lng = $loc->location->longitude;
       } catch (Exception $e) {
         $err = $e->getMessage();
         $city = 'Berlin';
@@ -208,7 +218,7 @@ add_action('rest_api_init', function () {
         $lng = 13.3425;
       }
 
-      $distance = getDistanceFromLatLonInKm($lat, $lng, 48.150699, 11.427918);
+      $distance = distance($lat, $lng, 48.150699, 11.427918);
 
       $record = array(
         'city' => $city,
