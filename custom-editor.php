@@ -3,8 +3,10 @@
 function sync_connections ($ok, $post_id) {
   $connections = get_field('connections', $post_id, false);
 
-  foreach ($connections as $str) {
-    array_push($ok, (int)$str);
+  if ($connections) {
+    foreach ($connections as $str) {
+      array_push($ok, (int)$str);
+    }
   }
 
   if (count($ok) > 0) {
@@ -18,7 +20,6 @@ function sync_connections ($ok, $post_id) {
 
   return;
 }
-add_action('syncing', 'sync_connections', 10, 2);
 
 function dn_get_ids_from_links ($value) {
   preg_match_all('#\bhttps?://[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/))#', $value, $matches);
@@ -48,7 +49,7 @@ function my_acf_save_post($post_id) {
 
   // all content rows, as string
   foreach ($values['content'] as $block) {
-    array_push($toParse, json_encode($block));
+    array_push($toParse, json_encode($block, JSON_UNESCAPED_SLASHES)); // so regex works
   }
 
   $linked_ids = [];
