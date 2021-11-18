@@ -48,9 +48,13 @@ function my_acf_save_post($post_id) {
   }
 
   // all content rows, as string
-  foreach ($values['content'] as $block) {
-    array_push($toParse, json_encode($block, JSON_UNESCAPED_SLASHES)); // so regex works
+  if (isset($values['content'])) {
+    foreach ($values['content'] as $block) {
+      array_push($toParse, json_encode($block, JSON_UNESCAPED_SLASHES)); // so regex works
+    }
   }
+
+  if (count($toParse) < 1) return;
 
   $linked_ids = [];
 
