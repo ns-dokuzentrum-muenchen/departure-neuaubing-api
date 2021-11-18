@@ -197,8 +197,8 @@ add_action('rest_api_init', function () {
     'callback' => function () {
       global $geo_client;
 
-      $ip = $_SERVER['REMOTE_ADDR'] ?? $_SERVER['REMOTE_ADDR'];
-      $proxy = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'];
+      $ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null;
+      $proxy = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : null;
       $check = $proxy ? $proxy : $ip;
       // $check = '209.58.188.173';
       $city = null;
@@ -251,3 +251,14 @@ add_filter('jwt_auth_whitelist', function ($endpoints) {
   array_push($endpoints, '/wp-json/dn/v1/*');
   return $endpoints;
 });
+
+// function filter_rest_res ($response, $post, $request) {
+//   $acf = $response->data['acf'];
+//   if ($acf && $acf['content']) {
+//     preg_match_all('#\bhttps?://[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/))#', json_encode($acf['content'], JSON_UNESCAPED_SLASHES), $matches);
+//     // process the links
+//     print_r($matches);
+//   }
+//   return $response;
+// }
+// add_filter('rest_prepare_projekt', 'filter_rest_res', 10, 3);
