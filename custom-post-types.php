@@ -41,6 +41,46 @@ function create_post_types () {
     )
   );
 
+  register_post_type('glossar',
+    array(
+      'labels' => array(
+        'name' => __('Glossar'),
+        'singular_name' => __('Glossar'),
+        'add_new_item' => __('Neuer Glossar-Begriff')
+      ),
+      'show_in_rest' => true,
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array(
+        'slug' => 'glossar'
+      ),
+      'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
+      'taxonomies' => array('category', 'post_tag'),
+      'menu_icon' => 'dashicons-media-text',
+      'menu_position' => 4
+    )
+  );
+  register_post_type('person',
+    array(
+      'rest_base' => 'personen',
+      'labels' => array(
+        'name' => __('Personen'),
+        'singular_name' => __('Person'),
+        'add_new_item' => __('Neuer Person')
+      ),
+      'show_in_rest' => true,
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array(
+        'slug' => 'personen'
+      ),
+      'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
+      'taxonomies' => array('category', 'post_tag'),
+      'menu_icon' => 'dashicons-media-text',
+      'menu_position' => 4
+    )
+  );
+
   register_post_type('kuenstler',
     array(
       'rest_base' => 'kuenstlerinnen',
@@ -73,26 +113,6 @@ function create_post_types () {
       'has_archive' => true,
       'rewrite' => array(
         'slug' => 'begriffe'
-      ),
-      'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
-      'taxonomies' => array('category', 'post_tag'),
-      'menu_icon' => 'dashicons-media-text',
-      'menu_position' => 4
-    )
-  );
-
-  register_post_type('glossar',
-    array(
-      'labels' => array(
-        'name' => __('Glossar'),
-        'singular_name' => __('Glossar'),
-        'add_new_item' => __('Neuer Glossar-Begriff')
-      ),
-      'show_in_rest' => true,
-      'public' => true,
-      'has_archive' => true,
-      'rewrite' => array(
-        'slug' => 'glossar'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
       'taxonomies' => array('category', 'post_tag'),

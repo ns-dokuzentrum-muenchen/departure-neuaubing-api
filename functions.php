@@ -12,6 +12,8 @@ if (isset($_SERVER['HTTP_ORIGIN']) && in_array($_SERVER['HTTP_ORIGIN'], $origins
   header('Access-Control-Expose-Headers: X-WP-Nonce, X-Auth-Token, X-Login-Message');
 }
 
+require_once( WP_PLUGIN_DIR . '/action-scheduler/action-scheduler.php' );
+
 // IMAGES
 add_theme_support('post-thumbnails');
 // add_image_size('small', 300, 300);
@@ -119,3 +121,4 @@ add_filter('user_has_cap', function ($all, $cap, $args, $user) {
 require 'custom-post-types.php';
 require 'custom-endpoints.php';
 require 'custom-hooks.php';
+require 'custom-editor.php';
