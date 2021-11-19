@@ -14,8 +14,7 @@ function dn_settings () {
   // }
 
   $data = array(
-    'cover' => get_field('image', 'options'),
-    'video' => get_field('video', 'options'),
+    'intro' => get_field('intro', 'options'),
     'projekte' => get_field('projekte', 'options')
   );
 
