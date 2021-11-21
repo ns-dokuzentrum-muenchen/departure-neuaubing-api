@@ -63,6 +63,7 @@ add_filter('acf/rest_api/projekt/get_fields', 'include_nested_acf_data');
 add_filter('acf/rest_api/kuenstler/get_fields', 'include_nested_acf_data');
 add_filter('acf/rest_api/person/get_fields', 'include_nested_acf_data');
 add_filter('acf/rest_api/glossar/get_fields', 'include_nested_acf_data');
+add_filter('acf/rest_api/ort/get_fields', 'include_nested_acf_data');
 
 function include_nested_acf_data ($data) {
   if (!empty($data)) {

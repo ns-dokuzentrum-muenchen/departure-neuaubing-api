@@ -76,7 +76,7 @@ function acf_format_textarea ($value) {
 
   foreach ($matches[0] as $url) {
     preg_match_all('/http:\/\/ns-doku\.test\/|http:\/\/localhost\:8080\/|https:\/\/doku\.n-kort\.net\//', $url, $hit);
-    if ($hit) {
+    if ($hit && isset($hit[0]) && isset($hit[0][0])) {
       $new_url = str_replace($hit[0][0], '/', $url);
       $value = str_replace($url, $new_url, $value);
     }
