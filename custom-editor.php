@@ -70,19 +70,15 @@ add_action('acf/save_post', 'my_acf_save_post'); // after save
 
 // output modification (perhaps)
 function acf_format_textarea ($value) {
-  // preg_match_all('#\bhttps?://[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/))#', $value, $matches);
+  preg_match_all('#\bhttps?://[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/))#', $value, $matches);
 
-  // // print_r($matches);
-
-  // foreach ($matches[0] as $url) {
-  //   preg_match_all('/http:\/\/ns-doku\.test\/|http:\/\/localhost\:8080\/|https:\/\/doku\.n-kort\.net\//', $url, $hit);
-  //   if ($hit && isset($hit[0]) && isset($hit[0][0])) {
-  //     $new_url = str_replace($hit[0][0], '/', $url);
-  //     $value = str_replace($url, $new_url, $value);
-  //   }
-  // }
-
-  // // echo $value . "\n";
+  foreach ($matches[0] as $url) {
+    preg_match_all('/http:\/\/ns-doku\.test\/|http:\/\/localhost\:8080\/|https:\/\/doku\.n-kort\.net\//', $url, $hit);
+    if ($hit && isset($hit[0]) && isset($hit[0][0])) {
+      $new_url = str_replace($hit[0][0], '/', $url);
+      $value = str_replace($url, $new_url, $value);
+    }
+  }
 
   return $value;
 }
