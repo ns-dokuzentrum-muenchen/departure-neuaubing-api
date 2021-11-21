@@ -59,6 +59,7 @@ if (function_exists('acf_add_options_page')) {
 }
 
 add_filter('acf/rest_api/projekt/get_fields', 'include_nested_acf_data');
+add_filter('acf/rest_api/int-projekt/get_fields', 'include_nested_acf_data');
 add_filter('acf/rest_api/kuenstler/get_fields', 'include_nested_acf_data');
 add_filter('acf/rest_api/person/get_fields', 'include_nested_acf_data');
 add_filter('acf/rest_api/glossar/get_fields', 'include_nested_acf_data');
@@ -76,17 +77,18 @@ function get_fields_recursive ($item) {
     // $item->author_name = get_the_author_meta('display_name', $item->post_author);
     $item->permalink = get_the_permalink($item);
 
-    // acf fields
     if ($fields = get_fields($item)) {
       $item->acf = $fields;
+
+      if ($item->post_type == 'int-projekt') return;
       array_walk_recursive($item->acf, 'get_fields_recursive');
     }
   } else if (is_array($item)) {
     $item['permalink'] = get_the_permalink($item['id']);
 
-    // acf fields
     if ($fields = get_fields($item['id'])) {
       $item['acf'] = $fields;
+      if ($item['post_type'] == 'int-projekt') return;
       array_walk_recursive($item['acf'], 'get_fields_recursive');
     }
   }
