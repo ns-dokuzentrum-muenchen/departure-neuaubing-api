@@ -60,6 +60,26 @@ function create_post_types () {
       'menu_position' => 4
     )
   );
+  register_post_type('ort',
+    array(
+      'rest_base' => 'orte',
+      'labels' => array(
+        'name' => __('Orte'),
+        'singular_name' => __('Ort'),
+        'add_new_item' => __('Neue Ort')
+      ),
+      'show_in_rest' => true,
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array(
+        'slug' => 'orte'
+      ),
+      'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
+      'taxonomies' => array('category', 'post_tag'),
+      'menu_icon' => 'dashicons-location',
+      'menu_position' => 4
+    )
+  );
   register_post_type('person',
     array(
       'rest_base' => 'personen',
