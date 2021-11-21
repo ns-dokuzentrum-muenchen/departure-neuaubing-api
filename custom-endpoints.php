@@ -62,14 +62,6 @@ function dn_search (WP_REST_Request $request) {
   }
 }
 
-// function comment_nonce () {
-//   $nonce = wp_create_nonce('hcaptcha_comment_form_nonce'); // ??
-//   $data = array( 'nonce' => $nonce );
-//   $response = new WP_REST_Response($data);
-//   $response->set_status(200);
-//   return $response;
-// }
-
 function passwordless_login (WP_REST_Request $request) {
   $account = ( isset( $request['user_email_username']) ) ? $account = sanitize_text_field( $request['user_email_username'] ) : false;
   $nonce = ( isset( $_POST['nonce']) ) ? $nonce = sanitize_key( $_POST['nonce'] ) : false;
