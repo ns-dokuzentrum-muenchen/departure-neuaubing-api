@@ -1,4 +1,18 @@
 <?php
+function my_acf_admin_head() {
+  ?>
+  <style type="text/css">
+    .acf-repeater.-row > table > tbody > tr > td,
+    .acf-repeater.-block > table > tbody > tr > td,
+    .acf-table > tbody > tr > td {
+      border-color: #444;
+    }
+  </style>
+  <?php
+}
+
+add_action('acf/input/admin_head', 'my_acf_admin_head');
+
 //
 function sync_connections ($ok, $post_id) {
   $connections = get_field('connections', $post_id, false);
