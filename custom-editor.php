@@ -51,7 +51,11 @@ function dn_get_ids_from_links ($value) {
 }
 
 // on save event
-function my_acf_save_post($post_id) {
+function my_acf_save_post ($post_id) {
+  $type = get_post_type($post_id);
+
+  if ($type !== 'projekt') return;
+
   // get all acf fields
   $values = get_fields($post_id, false);
 
