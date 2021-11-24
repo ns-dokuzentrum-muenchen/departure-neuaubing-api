@@ -55,7 +55,7 @@ function create_post_types () {
         'slug' => 'glossar'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
-      'taxonomies' => array('category', 'post_tag'),
+      'taxonomies' => array('post_tag'),
       'menu_icon' => 'dashicons-media-text',
       'menu_position' => 4
     )
@@ -75,7 +75,7 @@ function create_post_types () {
         'slug' => 'orte'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
-      'taxonomies' => array('category', 'post_tag'),
+      'taxonomies' => array('post_tag'),
       'menu_icon' => 'dashicons-location',
       'menu_position' => 4
     )
@@ -95,7 +95,7 @@ function create_post_types () {
         'slug' => 'personen'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
-      'taxonomies' => array('category', 'post_tag'),
+      'taxonomies' => array('post_tag'),
       'menu_icon' => 'dashicons-media-text',
       'menu_position' => 4
     )
@@ -135,7 +135,7 @@ function create_post_types () {
         'slug' => 'begriffe'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
-      'taxonomies' => array('category', 'post_tag'),
+      'taxonomies' => array('post_tag'),
       'menu_icon' => 'dashicons-media-text',
       'menu_position' => 4
     )
@@ -156,7 +156,7 @@ function create_post_types () {
         'slug' => 'markierungen'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments', 'thumbnail'),
-      'taxonomies' => array('category', 'post_tag'),
+      'taxonomies' => array('post_tag'),
       'menu_icon' => 'dashicons-location',
       'menu_position' => 4
     )
