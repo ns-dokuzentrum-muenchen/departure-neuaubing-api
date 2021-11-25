@@ -5,7 +5,8 @@ function my_acf_admin_head() {
     .acf-repeater.-row > table > tbody > tr > td,
     .acf-repeater.-block > table > tbody > tr > td,
     .acf-table > tbody > tr > td {
-      border-color: #444;
+      border-bottom-color: #444;
+      border-top-color: #444;
     }
   </style>
   <?php
