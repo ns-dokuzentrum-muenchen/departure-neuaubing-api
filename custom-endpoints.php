@@ -148,7 +148,25 @@ function dn_all_places () {
     'order' => 'ASC'
   ));
 
-  $response = new WP_REST_Response($markers);
+  $res = [];
+
+  foreach ($markers as $marker) {
+    $acf = get_fields($marker);
+    $tmp = array(
+      'post_id' => $marker->ID,
+      'id' => $acf['id'],
+      'place_id' => $acf['place_id'],
+      'konzentrationslager' => $acf['konzentrationslager'],
+      'kriegsgefangenenlager' => $acf['kriegsgefangenenlager'],
+      'zivilarbeiterlager' => $acf['zivilarbeiterlager'],
+      'sonstigelager' => $acf['sonstigelager'],
+      'num_people_cat_id' => $acf['num_people_cat_id'],
+      'location' => $acf['location']
+    );
+    array_push($res, $tmp);
+  }
+
+  $response = new WP_REST_Response($res);
   $response->set_status(200);
   return $response;
 }
