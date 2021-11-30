@@ -153,6 +153,7 @@ function dn_all_places () {
   foreach ($markers as $marker) {
     $acf = get_fields($marker);
     $tmp = array(
+      'title' => $marker->post_title,
       'post_id' => $marker->ID,
       'id' => $acf['id'],
       'place_id' => $acf['place_id'],
@@ -161,7 +162,10 @@ function dn_all_places () {
       'zivilarbeiterlager' => $acf['zivilarbeiterlager'],
       'sonstigelager' => $acf['sonstigelager'],
       'num_people_cat_id' => $acf['num_people_cat_id'],
-      'location' => $acf['location']
+      'location' => $acf['location'],
+      'description' => $acf['description'],
+      'source' => $acf['source'],
+      'from_artist' => (bool)$acf['foto_id']
     );
     array_push($res, $tmp);
   }
