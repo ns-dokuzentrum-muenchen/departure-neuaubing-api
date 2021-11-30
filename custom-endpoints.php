@@ -139,6 +139,20 @@ function dn_register (WP_REST_Request $request) {
   return $response;
 }
 
+function dn_all_places () {
+  $markers = get_posts(array(
+    'post_type' => 'markierung',
+    'numberposts' => -1,
+    'meta_key' => 'id',
+    'order_by' => 'meta_value',
+    'order' => 'ASC'
+  ));
+
+  $response = new WP_REST_Response($markers);
+  $response->set_status(200);
+  return $response;
+}
+
 // geo
 require 'vendor/autoload.php';
 use GeoIp2\WebService\Client;
@@ -147,11 +161,16 @@ $geo_client = new Client(482594, '8FGlhsaF0TdRPf5Z', ['de'], ['host' => 'geolite
 add_action('rest_api_init', function () {
   register_rest_route('dn/v1', '/settings', array(
     'methods' => WP_REST_Server::READABLE,
-    'callback' => 'dn_settings',
+    'callback' => 'dn_settings'
   ));
   register_rest_route('dn/v1', '/suche', array(
     'methods' => WP_REST_Server::READABLE,
     'callback' => 'dn_search'
+  ));
+
+  register_rest_route('dn/v1', '/places', array(
+    'methods' => WP_REST_Server::READABLE,
+    'callback' => 'dn_all_places'
   ));
 
   register_rest_route('dn/v1', '/login', array(
