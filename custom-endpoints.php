@@ -165,7 +165,8 @@ function dn_all_places () {
       'location' => $acf['location'],
       'description' => $acf['description'],
       'source' => $acf['source'],
-      'from_artist' => (bool)$acf['foto_id']
+      'from_artist' => (bool)$acf['foto_id'],
+      'slug' => $marker->post_name
     );
     array_push($res, $tmp);
   }
