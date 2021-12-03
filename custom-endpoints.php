@@ -14,6 +14,7 @@ function dn_settings () {
   // }
 
   $data = array(
+    'about' => get_field('about', 'options'),
     'intro' => get_field('intro', 'options'),
     'seitenleiste' => get_field('seitenleiste', 'options'),
     'projekte' => get_field('projekte', 'options')
