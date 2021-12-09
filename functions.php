@@ -135,7 +135,9 @@ add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mime
 }, 10, 4 );
 
 function cc_mime_types( $mimes ){
-  $mimes['svg'] = 'image/svg+xml';
+  if (current_user_can('publish_posts')) {
+    $mimes['svg'] = 'image/svg+xml';
+  }
   return $mimes;
 }
 add_filter( 'upload_mimes', 'cc_mime_types' );
