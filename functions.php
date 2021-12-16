@@ -99,7 +99,7 @@ function get_fields_recursive ($item) {
 function default_comments_on ($data) {
   $pt = $data['post_type'];
 
-  if ($pt == 'glossar' || $pt == 'markierung') {
+  if ($pt == 'forum') {
     $data['comment_status'] = 'open';
   }
 

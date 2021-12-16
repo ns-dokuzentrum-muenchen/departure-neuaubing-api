@@ -161,6 +161,27 @@ function create_post_types () {
       'menu_position' => 4
     )
   );
+
+  register_post_type('forum',
+    array(
+      'rest_base' => 'forum',
+      'labels' => array(
+        'name' => __('Kartenmarkierung'),
+        'singular_name' => __('Markierung'),
+        'add_new_item' => __('Neue Markeriung')
+      ),
+      'show_in_rest' => true,
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array(
+        'slug' => 'forum'
+      ),
+      'supports' => array('title', 'editor', 'author', 'revisions', 'comments', 'thumbnail'),
+      'taxonomies' => array('post_tag'),
+      'menu_icon' => 'dashicons-chat',
+      'menu_position' => 4
+    )
+  );
 }
 
 add_action( 'init', 'create_post_types' );
