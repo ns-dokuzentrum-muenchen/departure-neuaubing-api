@@ -96,16 +96,18 @@ function get_fields_recursive ($item) {
 }
 
 // enable some comments
-function default_comments_on ($data) {
-  $pt = $data['post_type'];
+function default_comments_on ($data, $postarr) {
+  if ($postarr['ID'] === 0) {
+    $pt = $data['post_type'];
 
-  if ($pt == 'forum') {
-    $data['comment_status'] = 'open';
+    if ($pt == 'forum' || $pt == 'begriff') {
+      $data['comment_status'] = 'open';
+    }
   }
 
   return $data;
 }
-add_filter('wp_insert_post_data', 'default_comments_on');
+add_filter('wp_insert_post_data', 'default_comments_on', 10, 2);
 // add_filter('rest_allow_anonymous_comments', '__return_true');
 
 add_filter('user_has_cap', function ($all, $cap, $args, $user) {
