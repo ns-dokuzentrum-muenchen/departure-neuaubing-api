@@ -166,9 +166,9 @@ function create_post_types () {
     array(
       'rest_base' => 'forum',
       'labels' => array(
-        'name' => __('Kartenmarkierung'),
-        'singular_name' => __('Markierung'),
-        'add_new_item' => __('Neue Markeriung')
+        'name' => __('Forum'),
+        'singular_name' => __('Thema'),
+        'add_new_item' => __('Neues Thema')
       ),
       'show_in_rest' => true,
       'public' => true,
@@ -178,7 +178,7 @@ function create_post_types () {
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments', 'thumbnail'),
       'taxonomies' => array('post_tag'),
-      'menu_icon' => 'dashicons-chat',
+      'menu_icon' => 'dashicons-format-chat',
       'menu_position' => 4
     )
   );
