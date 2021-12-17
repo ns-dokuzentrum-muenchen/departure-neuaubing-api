@@ -281,23 +281,10 @@ add_action('rest_api_init', function () {
     }
   ));
 
-  register_rest_field('comment', 'fullname', array(
+  register_rest_field(['comment', 'forum', 'begriff'], 'author_name', array(
     'get_callback' => function ($object) {
-      $first = get_the_author_meta('first_name', $object['author']);
-      $last = get_the_author_meta('last_name', $object['author']);
-      $names = [];
-
-      if ($first) {
-        array_push($names, $first);
-      }
-      if ($last) {
-        array_push($names, $last);
-      }
-      if (!count($names)) {
-        array_push($names, $object['author_name']);
-      }
-
-      return implode(' ', $names);
+      $name = get_the_author_meta('display_name', $object['author']);
+      return $name;
     }
   ));
 });
