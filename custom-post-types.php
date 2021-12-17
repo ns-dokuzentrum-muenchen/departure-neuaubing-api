@@ -12,6 +12,7 @@ function create_post_types () {
       'public' => true,
       'has_archive' => true,
       'rewrite' => array(
+        'with_front' => false,
         'slug' => 'projekte'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions'),
@@ -32,6 +33,7 @@ function create_post_types () {
       'public' => true,
       'has_archive' => false,
       'rewrite' => array(
+        'with_front' => false,
         'slug' => 'int-projekte'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions'),
@@ -52,6 +54,7 @@ function create_post_types () {
       'public' => true,
       'has_archive' => true,
       'rewrite' => array(
+        'with_front' => false,
         'slug' => 'glossar'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
@@ -72,6 +75,7 @@ function create_post_types () {
       'public' => true,
       'has_archive' => true,
       'rewrite' => array(
+        'with_front' => false,
         'slug' => 'orte'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
@@ -92,6 +96,7 @@ function create_post_types () {
       'public' => true,
       'has_archive' => true,
       'rewrite' => array(
+        'with_front' => false,
         'slug' => 'personen'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
@@ -111,6 +116,7 @@ function create_post_types () {
       'public' => true,
       'has_archive' => true,
       'rewrite' => array(
+        'with_front' => false,
         'slug' => 'kuenstlerinnen'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions'),
@@ -132,6 +138,7 @@ function create_post_types () {
       'public' => true,
       'has_archive' => true,
       'rewrite' => array(
+        'with_front' => false,
         'slug' => 'begriffe'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
@@ -153,6 +160,7 @@ function create_post_types () {
       'public' => true,
       'has_archive' => true,
       'rewrite' => array(
+        'with_front' => false,
         'slug' => 'markierungen'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments', 'thumbnail'),
@@ -174,6 +182,7 @@ function create_post_types () {
       'public' => true,
       'has_archive' => true,
       'rewrite' => array(
+        'with_front' => false,
         'slug' => 'forum'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments', 'thumbnail'),
