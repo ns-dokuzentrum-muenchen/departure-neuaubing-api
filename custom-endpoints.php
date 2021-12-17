@@ -281,6 +281,11 @@ add_action('rest_api_init', function () {
     }
   ));
 
+  register_rest_field(['forum', 'begriff'], 'comment_count', array(
+    'get_callback' => function ($object) {
+      return get_comments_number($object['id']);
+    }
+  ));
   register_rest_field(['forum', 'begriff'], 'author_name', array(
     'get_callback' => function ($object) {
       $name = get_the_author_meta('display_name', $object['author']);
