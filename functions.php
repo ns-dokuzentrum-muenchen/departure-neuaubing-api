@@ -129,9 +129,10 @@ function default_comments_on ($data, $postarr) {
 add_filter('wp_insert_post_data', 'default_comments_on', 10, 2);
 // add_filter('rest_allow_anonymous_comments', '__return_true');
 
+// allow subscribers to create Upload posts
 add_filter('user_has_cap', function ($all, $cap, $args, $user) {
   if (is_user_logged_in() && isset($cap[0]) && $cap[0] == 'edit_posts') {
-    if ($_SERVER['REQUEST_URI'] == '/wp-json/wp/v2/markierungen') {
+    if ($_SERVER['REQUEST_URI'] == '/wp-json/wp/v2/uploads') {
       if (isset($user->caps['subscriber']) && $user->caps['subscriber']) {
         $all['edit_posts'] = 1;
       }
@@ -139,6 +140,27 @@ add_filter('user_has_cap', function ($all, $cap, $args, $user) {
   }
   return $all;
 }, 10, 4);
+
+// update linked Markierung, on publish
+add_action('save_post_upload', function (int $post_ID, WP_Post $post, bool $update) {
+  if (!$update || $post->post_status != 'publish') return;
+
+  $parent_id = get_field('parent', $post_ID);
+  if (!$parent_id) return;
+
+  $parent_data = get_field('uploads', $parent_id);
+  if (!$parent_data) {
+    $parent_data = [];
+  }
+  $parent_data = array_map(function ($p) {
+    return $p->ID;
+  }, $parent_data);
+
+  if (!in_array($post_ID, $parent_data)) {
+    array_push($parent_data, $post_ID);
+    update_field('uploads', $parent_data, $parent_id);
+  }
+}, 20, 3);
 
 require 'custom-post-types.php';
 require 'custom-endpoints.php';

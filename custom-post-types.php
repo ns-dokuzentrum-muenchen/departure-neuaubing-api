@@ -163,9 +163,29 @@ function create_post_types () {
         'with_front' => false,
         'slug' => 'markierungen'
       ),
-      'supports' => array('title', 'editor', 'author', 'revisions', 'comments', 'thumbnail'),
+      'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
       'taxonomies' => array('post_tag'),
       'menu_icon' => 'dashicons-location',
+      'menu_position' => 4
+    )
+  );
+  register_post_type('upload',
+    array(
+      'rest_base' => 'uploads',
+      'labels' => array(
+        'name' => __('Gastbeiträge'),
+        'singular_name' => __('Beitrag'),
+        'add_new_item' => __('')
+      ),
+      'show_in_rest' => true,
+      'public' => true,
+      'has_archive' => false,
+      'rewrite' => array(
+        'with_front' => false,
+        'slug' => 'uploads'
+      ),
+      'supports' => array('title', 'editor', 'author'),
+      'menu_icon' => 'dashicons-cloud-upload',
       'menu_position' => 4
     )
   );
