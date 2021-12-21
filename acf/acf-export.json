@@ -810,7 +810,7 @@
                 "prefix_name": 0,
                 "sub_fields": [
                     {
-                        "ID": 211,
+                        "ID": 192,
                         "key": "field_619e62c44bc96_field_6193eaff0e559",
                         "label": "Inhalt Blocks",
                         "name": "content",
@@ -823,7 +823,7 @@
                         "id": "",
                         "class": "",
                         "conditional_logic": 0,
-                        "parent": 124,
+                        "parent": 133,
                         "wrapper": {
                             "width": "",
                             "class": "",
@@ -837,7 +837,7 @@
                                 "display": "table",
                                 "sub_fields": [
                                     {
-                                        "ID": 212,
+                                        "ID": 193,
                                         "key": "field_6193eb6e0e55b",
                                         "label": "HTML Titel",
                                         "name": "title",
@@ -850,7 +850,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -866,7 +866,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 213,
+                                        "ID": 194,
                                         "key": "field_6193eb9e0e55c",
                                         "label": "Column start",
                                         "name": "position",
@@ -879,7 +879,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -916,7 +916,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 228,
+                                        "ID": 195,
                                         "key": "field_619401e6051f7",
                                         "label": "Column start",
                                         "name": "position",
@@ -929,7 +929,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -956,7 +956,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 229,
+                                        "ID": 196,
                                         "key": "field_61940225051f8",
                                         "label": "Text size",
                                         "name": "size",
@@ -969,7 +969,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -994,7 +994,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 227,
+                                        "ID": 197,
                                         "key": "field_619401d7051f6",
                                         "label": "Text",
                                         "name": "text",
@@ -1007,7 +1007,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1033,7 +1033,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 230,
+                                        "ID": 198,
                                         "key": "field_61940193051f4",
                                         "label": "Gallery",
                                         "name": "gallery",
@@ -1046,7 +1046,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1070,7 +1070,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 232,
+                                        "ID": 199,
                                         "key": "field_61940318b2391",
                                         "label": "Group",
                                         "name": "group",
@@ -1083,7 +1083,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1116,7 +1116,7 @@
                                 "display": "table",
                                 "sub_fields": [
                                     {
-                                        "ID": 331,
+                                        "ID": 318,
                                         "key": "field_61979a2dc8ad1",
                                         "label": "Image",
                                         "name": "image",
@@ -1129,7 +1129,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -1150,7 +1150,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 1700,
+                                        "ID": 2035,
                                         "key": "field_61b21c40c9812",
                                         "label": "Image layer",
                                         "name": "layer",
@@ -1163,7 +1163,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -1194,7 +1194,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 337,
+                                        "ID": 319,
                                         "key": "field_6197a93103d05",
                                         "label": "Video",
                                         "name": "video",
@@ -1207,7 +1207,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -1218,7 +1218,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 342,
+                                        "ID": 320,
                                         "key": "field_6197aa77c4022",
                                         "label": "Column start",
                                         "name": "position",
@@ -1231,7 +1231,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -1258,7 +1258,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 338,
+                                        "ID": 321,
                                         "key": "field_6197a94903d06",
                                         "label": "Titel",
                                         "name": "title",
@@ -1271,7 +1271,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "40",
                                             "class": "",
@@ -1287,7 +1287,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 339,
+                                        "ID": 322,
                                         "key": "field_6197a95703d07",
                                         "label": "Description",
                                         "name": "description",
@@ -1300,7 +1300,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "60",
                                             "class": "",
@@ -1326,7 +1326,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 350,
+                                        "ID": 327,
                                         "key": "field_6197c9cd4d573",
                                         "label": "Titel",
                                         "name": "titel",
@@ -1339,7 +1339,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1355,7 +1355,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 351,
+                                        "ID": 328,
                                         "key": "field_6197c9dd4d574",
                                         "label": "Sections",
                                         "name": "sections",
@@ -1368,7 +1368,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1384,7 +1384,7 @@
                                         "_valid": 1,
                                         "sub_fields": [
                                             {
-                                                "ID": 352,
+                                                "ID": 329,
                                                 "key": "field_6197c9ed4d575",
                                                 "label": "Section title",
                                                 "name": "title",
@@ -1397,7 +1397,7 @@
                                                 "id": "",
                                                 "class": "",
                                                 "conditional_logic": 0,
-                                                "parent": 351,
+                                                "parent": 328,
                                                 "wrapper": {
                                                     "width": "30",
                                                     "class": "",
@@ -1412,7 +1412,7 @@
                                                 "_valid": 1
                                             },
                                             {
-                                                "ID": 353,
+                                                "ID": 330,
                                                 "key": "field_6197ca004d576",
                                                 "label": "Content",
                                                 "name": "content",
@@ -1425,7 +1425,7 @@
                                                 "id": "",
                                                 "class": "",
                                                 "conditional_logic": 0,
-                                                "parent": 351,
+                                                "parent": 328,
                                                 "wrapper": {
                                                     "width": "70",
                                                     "class": "",
@@ -1452,7 +1452,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 347,
+                                        "ID": 323,
                                         "key": "field_6197c80a26d88",
                                         "label": "Titel",
                                         "name": "title",
@@ -1465,7 +1465,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -1481,7 +1481,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 366,
+                                        "ID": 324,
                                         "key": "field_6197cc323ea6a",
                                         "label": "Column start",
                                         "name": "position",
@@ -1494,7 +1494,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -1521,7 +1521,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 348,
+                                        "ID": 325,
                                         "key": "field_6197c9774d571",
                                         "label": "Description",
                                         "name": "description",
@@ -1534,7 +1534,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1560,7 +1560,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 461,
+                                        "ID": 1869,
                                         "key": "field_61a658b1a98ef",
                                         "label": "Titel",
                                         "name": "title",
@@ -1573,7 +1573,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1589,7 +1589,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 462,
+                                        "ID": 1870,
                                         "key": "field_61a658c0a98f0",
                                         "label": "Beschreibung",
                                         "name": "description",
@@ -1602,7 +1602,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1628,7 +1628,7 @@
                                 "display": "table",
                                 "sub_fields": [
                                     {
-                                        "ID": 334,
+                                        "ID": 331,
                                         "key": "field_6197a6b97c149",
                                         "label": "Responsive Height",
                                         "name": "height",
@@ -1641,7 +1641,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1659,7 +1659,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 335,
+                                        "ID": 332,
                                         "key": "field_6197a6ea7c14a",
                                         "label": "Min-height \/ Fixed height",
                                         "name": "min",
@@ -1672,7 +1672,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 211,
+                                        "parent": 192,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
