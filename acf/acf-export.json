@@ -1,7 +1,77 @@
 [
     {
-        "key": "group_61bca68c6cbc7",
+        "key": "group_61c2037d702ed",
         "title": "Beiträge",
+        "fields": [
+            {
+                "key": "field_61c203971981d",
+                "label": "Uploaded to",
+                "name": "parent",
+                "type": "post_object",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "markierung"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "id",
+                "ui": 1
+            },
+            {
+                "key": "field_61c208111f840",
+                "label": "Thumbnail",
+                "name": "thumbnail",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "upload"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_61bca68c6cbc7",
+        "title": "Beiträge (old)",
         "fields": [
             {
                 "key": "field_61bca68c7055d",
@@ -810,7 +880,7 @@
                 "prefix_name": 0,
                 "sub_fields": [
                     {
-                        "ID": 192,
+                        "ID": 211,
                         "key": "field_619e62c44bc96_field_6193eaff0e559",
                         "label": "Inhalt Blocks",
                         "name": "content",
@@ -823,7 +893,7 @@
                         "id": "",
                         "class": "",
                         "conditional_logic": 0,
-                        "parent": 133,
+                        "parent": 124,
                         "wrapper": {
                             "width": "",
                             "class": "",
@@ -837,7 +907,7 @@
                                 "display": "table",
                                 "sub_fields": [
                                     {
-                                        "ID": 193,
+                                        "ID": 212,
                                         "key": "field_6193eb6e0e55b",
                                         "label": "HTML Titel",
                                         "name": "title",
@@ -850,7 +920,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -866,7 +936,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 194,
+                                        "ID": 213,
                                         "key": "field_6193eb9e0e55c",
                                         "label": "Column start",
                                         "name": "position",
@@ -879,7 +949,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -916,7 +986,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 195,
+                                        "ID": 228,
                                         "key": "field_619401e6051f7",
                                         "label": "Column start",
                                         "name": "position",
@@ -929,7 +999,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -956,7 +1026,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 196,
+                                        "ID": 229,
                                         "key": "field_61940225051f8",
                                         "label": "Text size",
                                         "name": "size",
@@ -969,7 +1039,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -994,7 +1064,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 197,
+                                        "ID": 227,
                                         "key": "field_619401d7051f6",
                                         "label": "Text",
                                         "name": "text",
@@ -1007,7 +1077,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1033,7 +1103,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 198,
+                                        "ID": 230,
                                         "key": "field_61940193051f4",
                                         "label": "Gallery",
                                         "name": "gallery",
@@ -1046,7 +1116,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1070,7 +1140,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 199,
+                                        "ID": 232,
                                         "key": "field_61940318b2391",
                                         "label": "Group",
                                         "name": "group",
@@ -1083,7 +1153,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1116,7 +1186,7 @@
                                 "display": "table",
                                 "sub_fields": [
                                     {
-                                        "ID": 318,
+                                        "ID": 331,
                                         "key": "field_61979a2dc8ad1",
                                         "label": "Image",
                                         "name": "image",
@@ -1129,7 +1199,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -1150,7 +1220,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 2035,
+                                        "ID": 1700,
                                         "key": "field_61b21c40c9812",
                                         "label": "Image layer",
                                         "name": "layer",
@@ -1163,7 +1233,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -1194,7 +1264,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 319,
+                                        "ID": 337,
                                         "key": "field_6197a93103d05",
                                         "label": "Video",
                                         "name": "video",
@@ -1207,7 +1277,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -1218,7 +1288,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 320,
+                                        "ID": 342,
                                         "key": "field_6197aa77c4022",
                                         "label": "Column start",
                                         "name": "position",
@@ -1231,7 +1301,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -1258,7 +1328,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 321,
+                                        "ID": 338,
                                         "key": "field_6197a94903d06",
                                         "label": "Titel",
                                         "name": "title",
@@ -1271,7 +1341,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "40",
                                             "class": "",
@@ -1287,7 +1357,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 322,
+                                        "ID": 339,
                                         "key": "field_6197a95703d07",
                                         "label": "Description",
                                         "name": "description",
@@ -1300,7 +1370,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "60",
                                             "class": "",
@@ -1326,7 +1396,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 327,
+                                        "ID": 350,
                                         "key": "field_6197c9cd4d573",
                                         "label": "Titel",
                                         "name": "titel",
@@ -1339,7 +1409,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1355,7 +1425,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 328,
+                                        "ID": 351,
                                         "key": "field_6197c9dd4d574",
                                         "label": "Sections",
                                         "name": "sections",
@@ -1368,7 +1438,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1384,7 +1454,7 @@
                                         "_valid": 1,
                                         "sub_fields": [
                                             {
-                                                "ID": 329,
+                                                "ID": 352,
                                                 "key": "field_6197c9ed4d575",
                                                 "label": "Section title",
                                                 "name": "title",
@@ -1397,7 +1467,7 @@
                                                 "id": "",
                                                 "class": "",
                                                 "conditional_logic": 0,
-                                                "parent": 328,
+                                                "parent": 351,
                                                 "wrapper": {
                                                     "width": "30",
                                                     "class": "",
@@ -1412,7 +1482,7 @@
                                                 "_valid": 1
                                             },
                                             {
-                                                "ID": 330,
+                                                "ID": 353,
                                                 "key": "field_6197ca004d576",
                                                 "label": "Content",
                                                 "name": "content",
@@ -1425,7 +1495,7 @@
                                                 "id": "",
                                                 "class": "",
                                                 "conditional_logic": 0,
-                                                "parent": 328,
+                                                "parent": 351,
                                                 "wrapper": {
                                                     "width": "70",
                                                     "class": "",
@@ -1452,7 +1522,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 323,
+                                        "ID": 347,
                                         "key": "field_6197c80a26d88",
                                         "label": "Titel",
                                         "name": "title",
@@ -1465,7 +1535,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -1481,7 +1551,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 324,
+                                        "ID": 366,
                                         "key": "field_6197cc323ea6a",
                                         "label": "Column start",
                                         "name": "position",
@@ -1494,7 +1564,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -1521,7 +1591,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 325,
+                                        "ID": 348,
                                         "key": "field_6197c9774d571",
                                         "label": "Description",
                                         "name": "description",
@@ -1534,7 +1604,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1560,7 +1630,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 1869,
+                                        "ID": 461,
                                         "key": "field_61a658b1a98ef",
                                         "label": "Titel",
                                         "name": "title",
@@ -1573,7 +1643,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1589,7 +1659,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 1870,
+                                        "ID": 462,
                                         "key": "field_61a658c0a98f0",
                                         "label": "Beschreibung",
                                         "name": "description",
@@ -1602,7 +1672,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1628,7 +1698,7 @@
                                 "display": "table",
                                 "sub_fields": [
                                     {
-                                        "ID": 331,
+                                        "ID": 334,
                                         "key": "field_6197a6b97c149",
                                         "label": "Responsive Height",
                                         "name": "height",
@@ -1641,7 +1711,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1659,7 +1729,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 332,
+                                        "ID": 335,
                                         "key": "field_6197a6ea7c14a",
                                         "label": "Min-height \/ Fixed height",
                                         "name": "min",
@@ -1672,7 +1742,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -2141,6 +2211,28 @@
                 "max_height": "",
                 "max_size": "",
                 "mime_types": ""
+            },
+            {
+                "key": "field_61c204d3d4dee",
+                "label": "Beiträge",
+                "name": "uploads",
+                "type": "post_object",
+                "instructions": "Synced automatically, do not edit!",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "upload"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 1,
+                "return_format": "object",
+                "ui": 1
             }
         ],
         "location": [
