@@ -1296,6 +1296,158 @@
                                 "min": "",
                                 "max": ""
                             },
+                            "layout_61d30a880e4c0": {
+                                "key": "layout_61d30a880e4c0",
+                                "name": "ImgFloatBlock",
+                                "label": "Floating images",
+                                "display": "table",
+                                "sub_fields": [
+                                    {
+                                        "ID": 2357,
+                                        "key": "field_61d30aa10e4c1",
+                                        "label": "Items",
+                                        "name": "items",
+                                        "prefix": "acf",
+                                        "type": "repeater",
+                                        "value": null,
+                                        "menu_order": 0,
+                                        "instructions": "",
+                                        "required": 0,
+                                        "id": "",
+                                        "class": "",
+                                        "conditional_logic": 0,
+                                        "parent": 192,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "parent_layout": "layout_61d30a880e4c0",
+                                        "collapsed": "",
+                                        "min": 1,
+                                        "max": 0,
+                                        "layout": "block",
+                                        "button_label": "",
+                                        "_name": "items",
+                                        "_valid": 1,
+                                        "sub_fields": [
+                                            {
+                                                "ID": 2358,
+                                                "key": "field_61d30ae90e4c5",
+                                                "label": "Type",
+                                                "name": "type",
+                                                "prefix": "acf",
+                                                "type": "select",
+                                                "value": null,
+                                                "menu_order": 0,
+                                                "instructions": "",
+                                                "required": 0,
+                                                "id": "",
+                                                "class": "",
+                                                "conditional_logic": 0,
+                                                "parent": 2357,
+                                                "wrapper": {
+                                                    "width": "33",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "text": "Text",
+                                                    "image": "Image"
+                                                },
+                                                "default_value": false,
+                                                "allow_null": 0,
+                                                "multiple": 0,
+                                                "ui": 0,
+                                                "return_format": "value",
+                                                "ajax": 0,
+                                                "placeholder": "",
+                                                "_name": "type",
+                                                "_valid": 1
+                                            },
+                                            {
+                                                "ID": 2359,
+                                                "key": "field_61d30ac90e4c3",
+                                                "label": "Text",
+                                                "name": "text",
+                                                "prefix": "acf",
+                                                "type": "wysiwyg",
+                                                "value": null,
+                                                "menu_order": 1,
+                                                "instructions": "",
+                                                "required": 0,
+                                                "id": "",
+                                                "class": "",
+                                                "conditional_logic": [
+                                                    [
+                                                        {
+                                                            "field": "field_61d30ae90e4c5",
+                                                            "operator": "==",
+                                                            "value": "Text"
+                                                        }
+                                                    ]
+                                                ],
+                                                "parent": 2357,
+                                                "wrapper": {
+                                                    "width": "67",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "tabs": "all",
+                                                "toolbar": "full",
+                                                "media_upload": 0,
+                                                "delay": 0,
+                                                "_name": "text",
+                                                "_valid": 1
+                                            },
+                                            {
+                                                "ID": 2360,
+                                                "key": "field_61d30ad40e4c4",
+                                                "label": "Image",
+                                                "name": "image",
+                                                "prefix": "acf",
+                                                "type": "image",
+                                                "value": null,
+                                                "menu_order": 2,
+                                                "instructions": "",
+                                                "required": 0,
+                                                "id": "",
+                                                "class": "",
+                                                "conditional_logic": [
+                                                    [
+                                                        {
+                                                            "field": "field_61d30ae90e4c5",
+                                                            "operator": "==",
+                                                            "value": "Image"
+                                                        }
+                                                    ]
+                                                ],
+                                                "parent": 2357,
+                                                "wrapper": {
+                                                    "width": "67",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "return_format": "array",
+                                                "preview_size": "medium",
+                                                "library": "all",
+                                                "min_width": "",
+                                                "min_height": "",
+                                                "min_size": "",
+                                                "max_width": "",
+                                                "max_height": "",
+                                                "max_size": "",
+                                                "mime_types": "",
+                                                "_name": "image",
+                                                "_valid": 1
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "min": "",
+                                "max": ""
+                            },
                             "layout_6197a91303d04": {
                                 "key": "layout_6197a91303d04",
                                 "name": "VideoBlock",
@@ -2132,6 +2284,74 @@
                                         "min": "",
                                         "max": "",
                                         "_name": "content",
+                                        "_valid": 1
+                                    }
+                                ],
+                                "min": "",
+                                "max": ""
+                            },
+                            "layout_61d2e3184897e": {
+                                "key": "layout_61d2e3184897e",
+                                "name": "ButtonBlock",
+                                "label": "Button action",
+                                "display": "block",
+                                "sub_fields": [
+                                    {
+                                        "ID": 2321,
+                                        "key": "field_61d2e3264897f",
+                                        "label": "Text",
+                                        "name": "text",
+                                        "prefix": "acf",
+                                        "type": "text",
+                                        "value": null,
+                                        "menu_order": 0,
+                                        "instructions": "",
+                                        "required": 0,
+                                        "id": "",
+                                        "class": "",
+                                        "conditional_logic": 0,
+                                        "parent": 192,
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "parent_layout": "layout_61d2e3184897e",
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": "",
+                                        "_name": "text",
+                                        "_valid": 1
+                                    },
+                                    {
+                                        "ID": 2322,
+                                        "key": "field_61d2e32d48980",
+                                        "label": "Action (URL, #top etc)",
+                                        "name": "action",
+                                        "prefix": "acf",
+                                        "type": "text",
+                                        "value": null,
+                                        "menu_order": 1,
+                                        "instructions": "",
+                                        "required": 0,
+                                        "id": "",
+                                        "class": "",
+                                        "conditional_logic": 0,
+                                        "parent": 192,
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "parent_layout": "layout_61d2e3184897e",
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": "",
+                                        "_name": "action",
                                         "_valid": 1
                                     }
                                 ],
@@ -3238,6 +3458,121 @@
                         "min": "",
                         "max": ""
                     },
+                    "layout_61d30a880e4c0": {
+                        "key": "layout_61d30a880e4c0",
+                        "name": "ImgFloatBlock",
+                        "label": "Floating images",
+                        "display": "table",
+                        "sub_fields": [
+                            {
+                                "key": "field_61d30aa10e4c1",
+                                "label": "Items",
+                                "name": "items",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "collapsed": "",
+                                "min": 1,
+                                "max": 0,
+                                "layout": "block",
+                                "button_label": "",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_61d30ae90e4c5",
+                                        "label": "Type",
+                                        "name": "type",
+                                        "type": "select",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "33",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "choices": {
+                                            "text": "Text",
+                                            "image": "Image"
+                                        },
+                                        "default_value": false,
+                                        "allow_null": 0,
+                                        "multiple": 0,
+                                        "ui": 0,
+                                        "return_format": "value",
+                                        "ajax": 0,
+                                        "placeholder": ""
+                                    },
+                                    {
+                                        "key": "field_61d30ac90e4c3",
+                                        "label": "Text",
+                                        "name": "text",
+                                        "type": "wysiwyg",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": [
+                                            [
+                                                {
+                                                    "field": "field_61d30ae90e4c5",
+                                                    "operator": "==",
+                                                    "value": "Text"
+                                                }
+                                            ]
+                                        ],
+                                        "wrapper": {
+                                            "width": "67",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "tabs": "all",
+                                        "toolbar": "full",
+                                        "media_upload": 0,
+                                        "delay": 0
+                                    },
+                                    {
+                                        "key": "field_61d30ad40e4c4",
+                                        "label": "Image",
+                                        "name": "image",
+                                        "type": "image",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": [
+                                            [
+                                                {
+                                                    "field": "field_61d30ae90e4c5",
+                                                    "operator": "==",
+                                                    "value": "Image"
+                                                }
+                                            ]
+                                        ],
+                                        "wrapper": {
+                                            "width": "67",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "return_format": "array",
+                                        "preview_size": "medium",
+                                        "library": "all",
+                                        "min_width": "",
+                                        "min_height": "",
+                                        "min_size": "",
+                                        "max_width": "",
+                                        "max_height": "",
+                                        "max_size": "",
+                                        "mime_types": ""
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
                     "layout_6197a91303d04": {
                         "key": "layout_6197a91303d04",
                         "name": "VideoBlock",
@@ -3837,6 +4172,54 @@
                                 "button_label": "Add Row",
                                 "min": "",
                                 "max": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_61d2e3184897e": {
+                        "key": "layout_61d2e3184897e",
+                        "name": "ButtonBlock",
+                        "label": "Button action",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_61d2e3264897f",
+                                "label": "Text",
+                                "name": "text",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_61d2e32d48980",
+                                "label": "Action (URL, #top etc)",
+                                "name": "action",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
                             }
                         ],
                         "min": "",
