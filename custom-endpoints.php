@@ -177,6 +177,29 @@ function dn_all_places () {
   return $response;
 }
 
+function dn_user_posts () {
+  $args = array(
+    'post_type' => array('begriff', 'upload'),
+    'posts_per_page' => -1,
+    'post__in' => array_unique(
+      wp_list_pluck(
+        get_comments(
+          array(
+            'user_id' => get_current_user_id()
+          )
+        ),
+        'comment_post_ID'
+      )
+    )
+  );
+
+  $res = new WP_Query($args);
+
+  $response = new WP_REST_Response($res);
+  $response->set_status(200);
+  return $response;
+}
+
 // geo
 require 'vendor/autoload.php';
 use GeoIp2\WebService\Client;
@@ -204,6 +227,10 @@ add_action('rest_api_init', function () {
   register_rest_route('dn/v1', '/register', array(
     'methods' => WP_REST_Server::CREATABLE,
     'callback' => 'dn_register'
+  ));
+  register_rest_route('dn/v1', '/konto', array(
+    'methods' => WP_REST_Server::READABLE,
+    'callback' => 'dn_user_posts'
   ));
 
   function getDistanceFromLatLonInKm($lat1, $lon1, $lat2, $lon2) {
