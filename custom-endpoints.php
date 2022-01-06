@@ -195,7 +195,7 @@ function dn_user_posts () {
 
   $res = new WP_Query($args);
 
-  $response = new WP_REST_Response($res);
+  $response = new WP_REST_Response($res->posts);
   $response->set_status(200);
   return $response;
 }
