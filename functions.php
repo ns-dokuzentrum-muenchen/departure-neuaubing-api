@@ -134,7 +134,7 @@ add_filter('wp_insert_post_data', 'default_comments_on', 10, 2);
 // allow subscribers to create Upload posts
 add_filter('user_has_cap', function ($all, $cap, $args, $user) {
   if (is_user_logged_in() && isset($cap[0]) && $cap[0] == 'edit_posts') {
-    if ($_SERVER['REQUEST_URI'] == '/wp-json/wp/v2/uploads') {
+    if ($_SERVER['REQUEST_URI'] == '/wp-json/wp/v2/uploads' || $_SERVER['REQUEST_URI'] == '/wp-json/wp/v2/begriffe') {
       if (isset($user->caps['subscriber']) && $user->caps['subscriber']) {
         $all['edit_posts'] = 1;
       }
