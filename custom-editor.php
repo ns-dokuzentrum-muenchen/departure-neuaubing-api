@@ -8,6 +8,9 @@ function my_acf_admin_head() {
       border-bottom-color: #444;
       border-top-color: #444;
     }
+    .acf-vimeo-data-display__preview a {
+      overflow: auto;
+    }
   </style>
   <?php
 }
