@@ -173,7 +173,7 @@ function create_post_types () {
     array(
       'rest_base' => 'uploads',
       'labels' => array(
-        'name' => __('Gastbeiträge'),
+        'name' => __('Uploads'),
         'singular_name' => __('Beitrag'),
         'add_new_item' => __('')
       ),
