@@ -177,6 +177,73 @@ function dn_all_places () {
   return $response;
 }
 
+function dn_search_places (WP_REST_Request $request) {
+  $keyword = sanitize_text_field($request['s']);
+
+  if ($keyword == null) {
+    return new WP_Error('no_posts', 'Nothing found', array('status' => 404));
+  }
+
+  $args = array(
+    's' => $keyword,
+    'post_type' => 'markierung'
+  );
+  $query = new WP_Query();
+  $query->parse_query($args);
+  relevanssi_do_query($query);
+
+  if ($query->post_count) {
+    $res = [];
+
+    // TODO: highlight terms
+    foreach ($query->posts as $marker) {
+      $acf = get_fields($marker);
+      $tmp = array(
+        'title' => $marker->post_title,
+        'post_id' => $marker->ID,
+        'id' => $acf['id'],
+        'place_id' => $acf['place_id'],
+        'konzentrationslager' => $acf['konzentrationslager'],
+        'kriegsgefangenenlager' => $acf['kriegsgefangenenlager'],
+        'zivilarbeiterlager' => $acf['zivilarbeiterlager'],
+        'sonstigelager' => $acf['sonstigelager'],
+        'num_people_cat_id' => $acf['num_people_cat_id'],
+        'location' => $acf['location'],
+        'description' => $acf['description'],
+        'source' => $acf['source'],
+        'from_artist' => (bool)$acf['foto_id'],
+        'slug' => $marker->post_name
+      );
+      array_push($res, $tmp);
+    }
+
+    $response = new WP_REST_Response($res);
+    $response->set_status(200);
+    return $response;
+    // foreach ($query->posts as $post) {
+    //   $acf = get_fields($post->ID);
+
+    //   $post->id = intval($post->ID);
+    //   $post->categories = wp_get_post_categories($post->ID, array('fields' => 'all'));
+    //   $post->tags = wp_get_post_tags($post->ID);
+    //   $post->acf = $acf;
+    //   $post->title_highlighted = relevanssi_highlight_terms(html_entity_decode($post->post_title), $keyword);
+    //   $post->link = get_the_permalink($post->ID);
+    //   $post->slug = $post->post_name;
+
+    //   if ($acf) {
+    //     $text = $acf['biographie'] ?? $acf['description']; // add more?
+    //     $post->content_highlighted = relevanssi_highlight_terms($text, $keyword, true);
+    //   }
+    // }
+    // $response = json_encode($query->posts);
+    // $response = json_decode($response, true);
+    // return new WP_REST_RESPONSE($response, 200);
+  } else {
+    return new WP_Error('no_posts', 'Nothing found', array('status' => 404));
+  }
+}
+
 function dn_user_posts () {
   $args = array(
     'post_type' => array('begriff', 'upload'),
@@ -218,6 +285,10 @@ add_action('rest_api_init', function () {
   register_rest_route('dn/v1', '/places', array(
     'methods' => WP_REST_Server::READABLE,
     'callback' => 'dn_all_places'
+  ));
+  register_rest_route('dn/v1', '/place-search', array(
+    'methods' => WP_REST_Server::READABLE,
+    'callback' => 'dn_search_places'
   ));
 
   register_rest_route('dn/v1', '/login', array(
