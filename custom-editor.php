@@ -95,7 +95,7 @@ function acf_format_textarea ($value) {
   preg_match_all('#\bhttps?://[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/))#', $value, $matches);
 
   foreach ($matches[0] as $url) {
-    preg_match_all('/http:\/\/ns-doku\.test\/|http:\/\/localhost\:8080\/|https:\/\/doku\.n-kort\.net\//', $url, $hit);
+    preg_match_all('/https?:\/\/(ns-doku\.test\/|localhost\:8080\/|doku\.n-kort\.net\/|dn-api(\.|-en\.)nsdoku\.de\/)/', $url, $hit);
     if ($hit && isset($hit[0]) && isset($hit[0][0])) {
       $new_url = str_replace($hit[0][0], '/', $url);
       $value = str_replace($url, $new_url, $value);
