@@ -70,7 +70,7 @@ function my_acf_save_post ($post_id) {
   }
 
   // all content rows, as string
-  if (isset($values['content']) && (gettype($values) == 'array' || gettype($values) == 'object')) {
+  if (isset($values['content']) && (gettype($values['content']) == 'array' || gettype($values['content']) == 'object')) {
     foreach ($values['content'] as $block) {
       array_push($toParse, json_encode($block, JSON_UNESCAPED_SLASHES)); // so regex works
     }
