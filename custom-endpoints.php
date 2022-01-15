@@ -304,6 +304,73 @@ add_action('rest_api_init', function () {
     'callback' => 'dn_user_posts'
   ));
 
+  register_rest_route('dn/v1', '/comments', array(
+    'methods' => WP_REST_Server::READABLE,
+    'callback' => function (WP_REST_Request $request) {
+      $response = new WP_REST_Response();
+
+      $post_id = filter_input(INPUT_GET, 'post', FILTER_VALIDATE_INT);
+      if (!isset($post_id)) {
+        $response->set_status(404);
+        return $response;
+      }
+      $args = array(
+        'post_id' => $post_id,
+        // 'hierarchical' => 'threaded',
+        'order' => 'asc'
+      );
+      $q = new WP_Comment_Query();
+      $comments = $q->query($args);
+
+      foreach ($comments as &$comment) {
+        $comment = comment_data($comment);
+      }
+
+      // TODO sort them
+
+      $response->set_data($comments);
+      $response->set_status(200);
+      return $response;
+    }
+  ));
+
+  function comment_data ($c) {
+    $author_id = (int) $c->user_id;
+    $comment_id = (int) $c->comment_ID;
+    $comment = array(
+      'id' => $comment_id,
+      'post' => (int) $c->comment_post_ID,
+      'parent' => (int) $c->comment_parent,
+      'author' => $author_id,
+      'author_name' => $c->comment_author,
+      'author_display_name' => get_the_author_meta('display_name', $author_id),
+      // 'date' => $c->comment_date,
+      'date' => get_comment_date('c', $comment_id),
+      'content' => apply_filters('the_content', $c->comment_content),
+      'link' => get_comment_link($comment_id),
+      'author_avatar_url' => get_avatar_url($author_id),
+      'children' => []
+    );
+
+    return $comment;
+  }
+
+  // export interface Comment {
+  //   id: number
+  //   post: number
+  //   parent: number
+  //   author: number
+  //   author_name: string
+  //   author_display_name: string
+  //   author_url: string
+  //   date: string
+  //   content: RenderedString
+  //   link: string
+  //   status: string
+  //   type: string
+  //   author_avatar_urls: { 24: string, 48: string, 96: string }
+  // }
+
   function getDistanceFromLatLonInKm($lat1, $lon1, $lat2, $lon2) {
     $R = 6371; // Radius of the earth in km
     $dLat = deg2rad($lat2 - $lat1);  // deg2rad below
@@ -392,21 +459,23 @@ add_action('rest_api_init', function () {
   ));
   register_rest_field('comment', 'author_display_name', array(
     'get_callback' => function ($object) {
-      $first = get_the_author_meta('first_name', $object['author']);
-      $last = get_the_author_meta('last_name', $object['author']);
-      $names = [];
+      $name = get_the_author_meta('display_name', $object['author']);
+      return $name;
+      // $first = get_the_author_meta('first_name', $object['author']);
+      // $last = get_the_author_meta('last_name', $object['author']);
+      // $names = [];
 
-      if ($first) {
-        array_push($names, $first);
-      }
-      if ($last) {
-        array_push($names, $last);
-      }
-      if (!count($names)) {
-        array_push($names, $object['author_name']);
-      }
+      // if ($first) {
+      //   array_push($names, $first);
+      // }
+      // if ($last) {
+      //   array_push($names, $last);
+      // }
+      // if (!count($names)) {
+      //   array_push($names, $object['author_name']);
+      // }
 
-      return implode(' ', $names);
+      // return implode(' ', $names);
     }
   ));
 });
