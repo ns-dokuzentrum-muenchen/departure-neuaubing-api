@@ -316,8 +316,10 @@ add_action('rest_api_init', function () {
       }
       $args = array(
         'post_id' => $post_id,
-        // 'hierarchical' => 'threaded',
-        'order' => 'asc'
+        'status' => 'approve',
+        'type' => 'comment',
+        'order' => 'asc',
+        'orderby' => array('comment_parent', 'comment_date')
       );
       $q = new WP_Comment_Query();
       $comments = $q->query($args);
@@ -326,7 +328,18 @@ add_action('rest_api_init', function () {
         $comment = comment_data($comment);
       }
 
-      // TODO sort them
+      $count = count($comments) - 1;
+      while ($count > 0) {
+        $match = isset($comments[$count]) ? $comments[$count] : false;
+        if ($match && $match['parent'] != 0) {
+          $p = array_search($match['parent'], array_column($comments, 'id'));
+          if ($p) {
+            array_push($comments[$p]['children'], $match);
+            array_splice($comments, $count, 1);
+          }
+        }
+        $count--;
+      }
 
       $response->set_data($comments);
       $response->set_status(200);
@@ -349,6 +362,8 @@ add_action('rest_api_init', function () {
       'content' => apply_filters('the_content', $c->comment_content),
       'link' => get_comment_link($comment_id),
       'author_avatar_url' => get_avatar_url($author_id),
+      'status' => 'approved',
+      'type' => 'comment',
       'children' => []
     );
 
