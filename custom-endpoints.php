@@ -306,7 +306,7 @@ add_action('rest_api_init', function () {
 
   register_rest_route('dn/v1', '/comments', array(
     'methods' => WP_REST_Server::READABLE,
-    'callback' => function (WP_REST_Request $request) {
+    'callback' => function () {
       $response = new WP_REST_Response();
 
       $post_id = filter_input(INPUT_GET, 'post', FILTER_VALIDATE_INT);
@@ -318,30 +318,47 @@ add_action('rest_api_init', function () {
         'post_id' => $post_id,
         'status' => 'approve',
         'type' => 'comment',
-        'order' => 'asc',
-        'orderby' => array('comment_parent', 'comment_date')
+        'orderby' => array(
+          'comment_parent' => 'asc',
+          'comment_date' => 'asc'
+        )
       );
       $q = new WP_Comment_Query();
-      $comments = $q->query($args);
 
+      $comments = $q->query($args);
+      $map = [];
+
+      // format comments, add them to Parent -> Child map
       foreach ($comments as &$comment) {
         $comment = comment_data($comment);
+        $parent = $comment['parent'];
+        $map[$parent] = $map[$parent] ?? [];
+        array_unshift($map[$parent], $comment['id']);
       }
 
-      $count = count($comments) - 1;
-      while ($count > 0) {
-        $match = isset($comments[$count]) ? $comments[$count] : false;
-        if ($match && $match['parent'] != 0) {
-          $p = array_search($match['parent'], array_column($comments, 'id'));
-          if ($p) {
-            array_push($comments[$p]['children'], $match);
-            array_splice($comments, $count, 1);
-          }
-        }
-        $count--;
-      }
+      function children ($id, $comments, $map) {
+        $i = array_search($id, array_column($comments, 'id'));
+        $comment = ($i !== false ? $comments[$i] : null);
+        if (!isset($map[$id])) return $comment;
 
-      $response->set_data($comments);
+        $comment['children'] = array_map(function ($id) use ($comments, $map) {
+          return children($id, $comments, $map);
+        }, $map[$id]);
+        return $comment;
+      };
+
+      // build recursive nested structure
+      $nested = array_map(function ($c) use ($comments, $map) {
+        if (!isset($map[$c['id']])) return $c;
+        $c['children'] = array_map(function ($id) use ($comments, $map) {
+          return children($id, $comments, $map);
+        }, $map[$c['id']]);
+        return $c;
+      }, array_filter($comments, function ($c) {
+        return $c['parent'] == 0;
+      }));
+
+      $response->set_data($nested);
       $response->set_status(200);
       return $response;
     }
@@ -357,7 +374,6 @@ add_action('rest_api_init', function () {
       'author' => $author_id,
       'author_name' => $c->comment_author,
       'author_display_name' => get_the_author_meta('display_name', $author_id),
-      // 'date' => $c->comment_date,
       'date' => get_comment_date('c', $comment_id),
       'content' => apply_filters('the_content', $c->comment_content),
       'link' => get_comment_link($comment_id),
