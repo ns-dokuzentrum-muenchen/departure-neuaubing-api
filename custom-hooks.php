@@ -24,8 +24,22 @@ function update_frontend ($post_id) {
 // add_action('save_post', 'update_frontend');
 
 // custom urls
-add_filter('get_avatar_url', function ($url, $id_or_email) {
-  $id = (int) $id_or_email;
+add_filter('get_avatar_url', function ($url, $thing) {
+  $id = 0;
+  if (gettype($thing) == 'object') {
+    if (isset($thing->user_id)) {
+      $id = (int) $thing->user_id;
+    } else if (isset($thing->post_author)) {
+      $id = (int) $thing->post_author;
+    } else if (isset($thing->author)) {
+      $id = (int) $thing->author;
+    } else {
+      $id = (int) $thing->ID;
+    }
+  } else {
+    $id = (int) $thing;
+  }
+
   $x = 1420 + $id;
   return 'https://stamen-tiles-a.a.ssl.fastly.net/toner-background/12/2180/' . $x . '@2x.png';
 }, 10, 2);
