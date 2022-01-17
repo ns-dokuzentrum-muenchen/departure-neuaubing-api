@@ -96,7 +96,7 @@ function include_nested_acf_data ($data) {
 
 function get_fields_recursive ($item) {
   if (is_object($item)) {
-    $item->author_name = get_the_author_meta('display_name', $item->post_author);
+    $item->author_name = get_the_author_meta('display_name', $item->post_author ?? 0);
     $item->permalink = get_the_permalink($item);
 
     if ($fields = get_fields($item)) {
@@ -106,7 +106,7 @@ function get_fields_recursive ($item) {
       array_walk_recursive($item->acf, 'get_fields_recursive');
     }
   } else if (is_array($item)) {
-    $item['author_name'] = get_the_author_meta('display_name', $item['post_author']);
+    $item['author_name'] = get_the_author_meta('display_name', $item['post_author'] ?? 0);
     $item['permalink'] = get_the_permalink($item['id']);
 
     if ($fields = get_fields($item['id'])) {
