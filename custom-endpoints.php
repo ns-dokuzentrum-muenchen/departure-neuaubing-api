@@ -448,13 +448,13 @@ add_action('rest_api_init', function () {
         $lat = $loc->location->latitude;
         $lng = $loc->location->longitude;
       } catch (Exception $e) {
-        $loc = null;
+        // $loc = null;
         $err = $e->getMessage();
         $city = ['de' => 'Berlin'];
         $lat = 52.4564;
         $lng = 13.3425;
       } catch (Throwable $e) {
-        $loc = null;
+        // $loc = null;
         $err = $e->getMessage();
         $city = ['de' => 'Berlin'];
         $lat = 52.4564;
@@ -466,8 +466,8 @@ add_action('rest_api_init', function () {
       $record = array(
         'city' => $city,
         'country' => $country,
-        'distance' => $distance,
-        'full' => $loc
+        'distance' => $distance
+        // 'full' => $loc
       );
 
       if ($err) {
