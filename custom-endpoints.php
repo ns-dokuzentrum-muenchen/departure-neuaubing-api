@@ -232,27 +232,65 @@ function dn_search_places (WP_REST_Request $request) {
 }
 
 function dn_user_posts () {
+  $uid = get_current_user_id();
+  $commented_on = wp_list_pluck(
+    get_comments(array('user_id' => $uid)),
+    'comment_post_ID'
+  );
+  $created = wp_list_pluck(
+    get_posts(array(
+      'post_type' => array('upload', 'begriff', 'forum'),
+      'posts_per_page' => -1,
+      'author' => $uid
+    )),
+    'ID'
+  );
   $args = array(
-    'post_type' => array('begriff', 'upload'),
+    'post_type' => array('begriff', 'forum', 'upload'),
     'posts_per_page' => -1,
-    'post__in' => array_unique(
-      wp_list_pluck(
-        get_comments(
-          array(
-            'user_id' => get_current_user_id()
-          )
-        ),
-        'comment_post_ID'
-      )
-    )
+    'post__in' => array_unique(array_merge($commented_on, $created))
   );
 
-  $res = new WP_Query($args);
+  $query = new WP_Query($args);
 
-  $response = new WP_REST_Response($res->posts);
+  $res = [];
+  if ($query->post_count) {
+    foreach ($query->posts as $post) {
+      array_push($res, format_post($post));
+    }
+  }
+
+  $response = new WP_REST_Response($res);
   $response->set_status(200);
   return $response;
 }
+
+function format_post ($post) {
+  $acf = get_fields($post);
+
+  $tmp = array(
+    'acf' => $acf,
+    'id' => $post->ID,
+    'date' => $post->post_date,
+    'date_gmt' => $post->post_date_gmt,
+    'guid' => array('rendered' => $post->guid),
+    'modified' => $post->post_modified,
+    'modified_gmt' => $post->post_modified_gmt,
+    'slug' => $post->post_name,
+    'status' => $post->post_status,
+    'type' => $post->post_type,
+    'link' => get_the_permalink($post),
+    'title' => array('rendered' => $post->post_title),
+    'content' => array('rendered' => $post->post_content),
+    'author' => $post->post_author,
+    'author_name' => get_the_author_meta('display_name', $post->post_author),
+    'comment_status' => $post->comment_status,
+    'comment_count' => $post->comment_count
+  );
+
+  return $tmp;
+}
+
 
 // geo
 require 'vendor/autoload.php';
@@ -286,7 +324,7 @@ add_action('rest_api_init', function () {
     'methods' => WP_REST_Server::CREATABLE,
     'callback' => 'dn_register'
   ));
-  register_rest_route('dn/v1', '/konto', array(
+  register_rest_route('dnu/v1', '/konto', array(
     'methods' => WP_REST_Server::READABLE,
     'callback' => 'dn_user_posts'
   ));
