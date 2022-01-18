@@ -71,7 +71,7 @@ add_filter('rest_pre_dispatch', function ($response, $server, WP_REST_Request $r
 
 if (function_exists('acf_add_options_page')) {
   acf_add_options_page(array(
-    'page_title' => __('Einstellungen'),
+    'page_title' => __('Startseite'),
     'position' => 4.3,
     'autoload' => true
   ));
