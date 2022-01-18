@@ -106,7 +106,7 @@ function get_fields_recursive ($item, $key, $lvl = 1) {
 
     if ($fields = get_fields($item)) {
       $item->acf = $fields;
-      $item->lvl = $lvl;
+      // $item->lvl = $lvl;
 
       // if ($item->post_type == 'int-projekt') return;
       array_walk_recursive($item->acf, 'get_fields_recursive', $lvl + 1);
@@ -117,7 +117,7 @@ function get_fields_recursive ($item, $key, $lvl = 1) {
 
     if ($fields = get_fields($item['id'])) {
       $item['acf'] = $fields;
-      $item['lvl'] = $lvl;
+      // $item['lvl'] = $lvl;
       // if ($item['post_type'] == 'int-projekt') return;
       array_walk_recursive($item['acf'], 'get_fields_recursive', $lvl + 1);
     }
