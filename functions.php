@@ -94,33 +94,32 @@ function include_nested_acf_data ($data) {
   return $data;
 }
 
-$lvl = 0;
-function get_fields_recursive ($item) {
-  global $lvl;
-
-  if ($lvl > 4) {
+function get_fields_recursive ($item, $key, $lvl = 1) {
+  // print_r($lvl);
+  // print_r($item);
+  if ($lvl > 1) {
     return $item;
   }
   if (is_object($item)) {
-    $lvl++;
     $item->author_name = get_the_author_meta('display_name', $item->post_author ?? 0);
     $item->permalink = get_the_permalink($item);
 
     if ($fields = get_fields($item)) {
       $item->acf = $fields;
+      $item->lvl = $lvl;
 
-      if ($item->post_type == 'int-projekt') return;
-      array_walk_recursive($item->acf, 'get_fields_recursive');
+      // if ($item->post_type == 'int-projekt') return;
+      array_walk_recursive($item->acf, 'get_fields_recursive', $lvl + 1);
     }
   } else if (is_array($item)) {
-    $lvl++;
     $item['author_name'] = get_the_author_meta('display_name', $item['post_author'] ?? 0);
     $item['permalink'] = get_the_permalink($item['id']);
 
     if ($fields = get_fields($item['id'])) {
       $item['acf'] = $fields;
-      if ($item['post_type'] == 'int-projekt') return;
-      array_walk_recursive($item['acf'], 'get_fields_recursive');
+      $item['lvl'] = $lvl;
+      // if ($item['post_type'] == 'int-projekt') return;
+      array_walk_recursive($item['acf'], 'get_fields_recursive', $lvl + 1);
     }
   }
 }
