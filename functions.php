@@ -94,8 +94,15 @@ function include_nested_acf_data ($data) {
   return $data;
 }
 
+$lvl = 0;
 function get_fields_recursive ($item) {
+  global $lvl;
+
+  if ($lvl > 4) {
+    return $item;
+  }
   if (is_object($item)) {
+    $lvl++;
     $item->author_name = get_the_author_meta('display_name', $item->post_author ?? 0);
     $item->permalink = get_the_permalink($item);
 
@@ -106,6 +113,7 @@ function get_fields_recursive ($item) {
       array_walk_recursive($item->acf, 'get_fields_recursive');
     }
   } else if (is_array($item)) {
+    $lvl++;
     $item['author_name'] = get_the_author_meta('display_name', $item['post_author'] ?? 0);
     $item['permalink'] = get_the_permalink($item['id']);
 
