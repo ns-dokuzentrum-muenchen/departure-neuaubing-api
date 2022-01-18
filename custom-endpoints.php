@@ -114,6 +114,12 @@ function dn_register (WP_REST_Request $request) {
 
   $response = new WP_REST_Response();
 
+  if (strlen($username) < 4) {
+    $response->set_data(array('msg' => 'Der Benutzername muss aus mindestens 4 Zeichen bestehen.'));
+    $response->set_status(400);
+    return $response;
+  }
+
   if ($username && $email) {
     $pass = random_bytes(32);
     $user = wp_create_user($username, $pass, $email);
