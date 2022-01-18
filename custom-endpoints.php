@@ -248,7 +248,9 @@ function dn_user_posts () {
   $args = array(
     'post_type' => array('begriff', 'forum', 'upload'),
     'posts_per_page' => -1,
-    'post__in' => array_unique(array_merge($commented_on, $created))
+    'post__in' => array_unique(array_merge($commented_on, $created)),
+    'orderby' => 'post_modified',
+    'order' => 'desc'
   );
 
   $query = new WP_Query($args);
