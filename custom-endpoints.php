@@ -1,4 +1,8 @@
 <?php
+// geo
+require 'vendor/autoload.php';
+use GeoIp2\WebService\Client;
+
 function dn_settings () {
   // define('HOME_URL', ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['HTTP_HOST']);
 
@@ -293,12 +297,6 @@ function format_post ($post) {
   return $tmp;
 }
 
-
-// geo
-require 'vendor/autoload.php';
-use GeoIp2\WebService\Client;
-$geo_client = new Client(482594, '8FGlhsaF0TdRPf5Z', ['de'], ['host' => 'geolite.info']);
-
 add_action('rest_api_init', function () {
   register_rest_route('dn/v1', '/settings', array(
     'methods' => WP_REST_Server::READABLE,
@@ -453,7 +451,9 @@ add_action('rest_api_init', function () {
   register_rest_route('dn/v1', '/geo', array(
     'methods' => WP_REST_Server::READABLE,
     'callback' => function () {
-      global $geo_client;
+      $geo_account = getenv('MAXMIND_ACCOUNT');
+      $geo_key = getenv('MAXMIND_KEY');
+      $geo_client = new Client($geo_account, $geo_key, ['de'], ['host' => 'geolite.info']);
 
       $ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null;
       $proxy = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : null;
@@ -494,7 +494,6 @@ add_action('rest_api_init', function () {
         'city' => $city,
         'country' => $country,
         'distance' => $distance
-        // 'full' => $loc
       );
 
       if ($err) {
