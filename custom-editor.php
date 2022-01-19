@@ -44,7 +44,7 @@ function dn_get_ids_from_links ($value) {
 
   $ok = [];
   foreach ($matches[0] as $url) {
-    if (preg_match('/ns-doku\.test|localhost\:8080|doku\.n-kort\.net/', $url)) {
+    if (preg_match('/ns-doku\.test|localhost\:8080|doku\.n-kort\.net|dn-api\.nsdoku\.de|dn-api-en\.nsdoku\.de/', $url)) {
       $id = url_to_postid($url);
 
       array_push($ok, $id);
