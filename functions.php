@@ -3,7 +3,12 @@
 // $host = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
 // $host .= $_SERVER['HTTP_ORIGIN'] ?? $_SERVER['HTTP_HOST'];
 // header('Access-Control-Allow-Origin: ' . $host);
-$origins = ['http://localhost:8080', 'https://departure-neuaubing-stage.netlify.app'];
+$origins = [
+  'http://localhost:8080',
+  'https://departure-neuaubing-stage.netlify.app',
+  'https://departure-neuaubing.nsdoku.de',
+  'https://dn.nsdoku.de'
+];
 
 if (isset($_SERVER['HTTP_ORIGIN']) && in_array($_SERVER['HTTP_ORIGIN'], $origins)) {
   header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
