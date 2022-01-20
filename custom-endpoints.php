@@ -477,13 +477,13 @@ add_action('rest_api_init', function () {
       } catch (Exception $e) {
         // $loc = null;
         $err = $e->getMessage();
-        $city = ['de' => 'Berlin'];
+        $city = ['de' => 'München'];
         $lat = 52.4564;
         $lng = 13.3425;
       } catch (Throwable $e) {
         // $loc = null;
         $err = $e->getMessage();
-        $city = ['de' => 'Berlin'];
+        $city = ['de' => 'München'];
         $lat = 52.4564;
         $lng = 13.3425;
       }
