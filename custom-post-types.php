@@ -1,5 +1,13 @@
 <?php
 function create_post_types () {
+  $prefix = '';
+
+  if (isset($_SERVER['SERVER_NAME'])) {
+    if (str_contains($_SERVER['SERVER_NAME'], 'en.')) {
+      $prefix = 'en/';
+    }
+  }
+
   register_post_type('projekt',
     array(
       'rest_base' => 'projekte',
@@ -13,7 +21,7 @@ function create_post_types () {
       'has_archive' => true,
       'rewrite' => array(
         'with_front' => false,
-        'slug' => 'projekte'
+        'slug' => $prefix . 'projekte'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions'),
       'taxonomies' => array('post_tag'),
@@ -34,7 +42,7 @@ function create_post_types () {
       'has_archive' => false,
       'rewrite' => array(
         'with_front' => false,
-        'slug' => 'int-projekte'
+        'slug' => $prefix . 'int-projekte'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions'),
       // 'taxonomies' => array('post_tag'),
@@ -55,7 +63,7 @@ function create_post_types () {
       'has_archive' => true,
       'rewrite' => array(
         'with_front' => false,
-        'slug' => 'glossar'
+        'slug' => $prefix . 'glossar'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
       'taxonomies' => array('post_tag'),
@@ -76,7 +84,7 @@ function create_post_types () {
       'has_archive' => true,
       'rewrite' => array(
         'with_front' => false,
-        'slug' => 'orte'
+        'slug' => $prefix . 'orte'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
       'taxonomies' => array('post_tag'),
@@ -97,7 +105,7 @@ function create_post_types () {
       'has_archive' => true,
       'rewrite' => array(
         'with_front' => false,
-        'slug' => 'personen'
+        'slug' => $prefix . 'personen'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
       'taxonomies' => array('post_tag'),
@@ -117,7 +125,7 @@ function create_post_types () {
       'has_archive' => true,
       'rewrite' => array(
         'with_front' => false,
-        'slug' => 'kuenstlerinnen'
+        'slug' => $prefix . 'kuenstlerinnen'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions'),
       'taxonomies' => array('post_tag'),
@@ -139,7 +147,7 @@ function create_post_types () {
       'has_archive' => true,
       'rewrite' => array(
         'with_front' => false,
-        'slug' => 'begriffe'
+        'slug' => $prefix . 'begriffe'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
       'taxonomies' => array('post_tag'),
@@ -161,7 +169,7 @@ function create_post_types () {
       'has_archive' => true,
       'rewrite' => array(
         'with_front' => false,
-        'slug' => 'markierungen'
+        'slug' => $prefix . 'markierungen'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments'),
       'taxonomies' => array('post_tag'),
@@ -182,7 +190,7 @@ function create_post_types () {
       'has_archive' => false,
       'rewrite' => array(
         'with_front' => false,
-        'slug' => 'uploads'
+        'slug' => $prefix . 'uploads'
       ),
       'supports' => array('title', 'editor', 'author'),
       'menu_icon' => 'dashicons-cloud-upload',
@@ -203,7 +211,7 @@ function create_post_types () {
       'has_archive' => true,
       'rewrite' => array(
         'with_front' => false,
-        'slug' => 'forum'
+        'slug' => $prefix . 'forum'
       ),
       'supports' => array('title', 'editor', 'author', 'revisions', 'comments', 'thumbnail'),
       'taxonomies' => array('post_tag'),
