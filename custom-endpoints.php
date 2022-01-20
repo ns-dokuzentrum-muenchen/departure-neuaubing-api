@@ -503,7 +503,8 @@ add_action('rest_api_init', function () {
       $response->set_data($record);
       $response->set_status(200);
       return $response;
-    }
+    },
+    'permission_callback' => '__return_true'
   ));
 
   register_rest_field(['forum', 'begriff'], 'comment_count', array(
