@@ -543,6 +543,7 @@ add_action('rest_api_init', function () {
 
 add_filter('jwt_auth_whitelist', function ($endpoints) {
   array_push($endpoints, '/wp-json/dn/v1/*');
+  array_push($endpoints, '/wp-json/yoast/v1/get_head');
   return $endpoints;
 });
 
