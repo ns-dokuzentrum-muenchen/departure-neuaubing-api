@@ -53,8 +53,16 @@ add_action('wp_dashboard_setup', function (){
 // Page base
 add_action('init', function () {
   global $wp_rewrite;
+
+  $prefix = '';
+
+  if (isset($_SERVER['SERVER_NAME'])) {
+    if (str_contains($_SERVER['SERVER_NAME'], 'en.')) {
+      $prefix = 'en/';
+    }
+  }
   // print_r($wp_rewrite);
-  $wp_rewrite->page_structure = 'pages/%pagename%';
+  $wp_rewrite->page_structure = $prefix . 'pages/%pagename%';
 });
 
 // prevent commenters setting name/email/auther etc
