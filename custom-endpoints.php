@@ -237,7 +237,6 @@ function dn_search_places (WP_REST_Request $request) {
 
 function dn_user_posts () {
   $uid = get_current_user_id();
-  // $uid = 1;
   $commented_on = wp_list_pluck(
     get_comments(array('user_id' => $uid, 'status' => ['hold', 'approve'])),
     'comment_post_ID'
@@ -250,21 +249,23 @@ function dn_user_posts () {
     )),
     'ID'
   );
+
+  $all = array_unique(array_merge($commented_on, $created));
   $args = array(
-    // 'post_type' => array('begriff', 'forum', 'upload', 'glossar', 'ort', 'person'),
     'post_type' => array('begriff', 'forum', 'upload'),
     'posts_per_page' => -1,
-    'post__in' => array_unique(array_merge($commented_on, $created)),
+    'post__in' => $all,
     'orderby' => 'post_modified',
     'order' => 'desc'
   );
 
-  $query = new WP_Query($args);
-
   $res = [];
-  if ($query->post_count) {
-    foreach ($query->posts as $post) {
-      array_push($res, format_post($post));
+  if (count($all)) {
+    $query = new WP_Query($args);
+    if ($query->post_count) {
+      foreach ($query->posts as $post) {
+        array_push($res, format_post($post));
+      }
     }
   }
 
