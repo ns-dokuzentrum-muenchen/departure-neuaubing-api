@@ -267,6 +267,7 @@ function dn_user_posts () {
   }
 
   $response = new WP_REST_Response($res);
+  $response->header('X-WP-UserID', $uid);
   $response->set_status(200);
   return $response;
 }
@@ -299,37 +300,45 @@ function format_post ($post) {
 
 add_action('rest_api_init', function () {
   register_rest_route('dn/v1', '/settings', array(
+    'permission_callback' => '__return_true',
     'methods' => WP_REST_Server::READABLE,
     'callback' => 'dn_settings'
   ));
   register_rest_route('dn/v1', '/suche', array(
+    'permission_callback' => '__return_true',
     'methods' => WP_REST_Server::READABLE,
     'callback' => 'dn_search'
   ));
 
   register_rest_route('dn/v1', '/places', array(
+    'permission_callback' => '__return_true',
     'methods' => WP_REST_Server::READABLE,
     'callback' => 'dn_all_places'
   ));
   register_rest_route('dn/v1', '/place-search', array(
+    'permission_callback' => '__return_true',
     'methods' => WP_REST_Server::READABLE,
     'callback' => 'dn_search_places'
   ));
 
   register_rest_route('dn/v1', '/login', array(
+    'permission_callback' => '__return_true',
     'methods' => WP_REST_Server::CREATABLE,
     'callback' => 'passwordless_login'
   ));
   register_rest_route('dn/v1', '/register', array(
+    'permission_callback' => '__return_true',
     'methods' => WP_REST_Server::CREATABLE,
     'callback' => 'dn_register'
   ));
   register_rest_route('dnu/v1', '/konto', array(
+    'permission_callback' => '__return_true',
     'methods' => WP_REST_Server::READABLE,
     'callback' => 'dn_user_posts'
   ));
 
   register_rest_route('dn/v1', '/comments', array(
+    'permission_callback' => '__return_true',
     'methods' => WP_REST_Server::READABLE,
     'callback' => function () {
       $response = new WP_REST_Response();
@@ -411,39 +420,11 @@ add_action('rest_api_init', function () {
     return $comment;
   }
 
-  // export interface Comment {
-  //   id: number
-  //   post: number
-  //   parent: number
-  //   author: number
-  //   author_name: string
-  //   author_display_name: string
-  //   author_url: string
-  //   date: string
-  //   content: RenderedString
-  //   link: string
-  //   status: string
-  //   type: string
-  //   author_avatar_urls: { 24: string, 48: string, 96: string }
-  // }
-
-  function getDistanceFromLatLonInKm($lat1, $lon1, $lat2, $lon2) {
-    $R = 6371; // Radius of the earth in km
-    $dLat = deg2rad($lat2 - $lat1);  // deg2rad below
-    $dLon = deg2rad($lon2 - $lon1);
-    $a = sin($dLat / 2) * sin($dLat / 2) +
-      cos(deg2rad($lat1)) * cos(deg2rad($lat2)) *
-      sin($dLon / 2) * sin($dLon / 2);
-    $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
-    $d = $R * $c; // Distance in km
-    return $d;
-  }
-
-  function distance($lat1, $lon1, $lat2, $lon2) {
-    $p = 0.017453292519943295;    // Math.PI / 180
+  function distance ($lat1, $lon1, $lat2, $lon2) {
+    $p = 0.017453292519943295; // Math.PI / 180
     $a = 0.5 - cos(($lat2 - $lat1) * $p)/2 +
-            cos($lat1 * $p) * cos($lat2 * $p) *
-            (1 - cos(($lon2 - $lon1) * $p))/2;
+      cos($lat1 * $p) * cos($lat2 * $p) *
+      (1 - cos(($lon2 - $lon1) * $p))/2;
 
     return 12742 * asin(sqrt($a)); // 2 * R; R = 6371 km
   }
