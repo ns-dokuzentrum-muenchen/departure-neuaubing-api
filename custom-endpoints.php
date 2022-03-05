@@ -37,7 +37,8 @@ function dn_search (WP_REST_Request $request) {
   }
 
   $args = array(
-    's' => $keyword
+    's' => $keyword,
+    'posts_per_page' => 36
   );
   $query = new WP_Query();
   $query->parse_query($args);
