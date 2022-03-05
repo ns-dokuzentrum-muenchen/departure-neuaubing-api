@@ -677,7 +677,7 @@
                 {
                     "param": "options_page",
                     "operator": "==",
-                    "value": "acf-options-einstellungen"
+                    "value": "acf-options-startseite"
                 }
             ]
         ],
@@ -926,20 +926,20 @@
                 "prefix_name": 0,
                 "sub_fields": [
                     {
-                        "ID": 192,
+                        "ID": 211,
                         "key": "field_619e62c44bc96_field_6193eaff0e559",
                         "label": "Inhalt Blocks",
                         "name": "content",
                         "prefix": "acf[field_619e62c44bc96]",
                         "type": "flexible_content",
                         "value": null,
-                        "menu_order": 13,
+                        "menu_order": 12,
                         "instructions": "",
                         "required": 0,
                         "id": "",
                         "class": "",
                         "conditional_logic": 0,
-                        "parent": 133,
+                        "parent": 124,
                         "wrapper": {
                             "width": "",
                             "class": "",
@@ -953,7 +953,7 @@
                                 "display": "table",
                                 "sub_fields": [
                                     {
-                                        "ID": 193,
+                                        "ID": 212,
                                         "key": "field_6193eb6e0e55b",
                                         "label": "HTML Titel",
                                         "name": "title",
@@ -966,7 +966,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -982,9 +982,9 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 2452,
-                                        "key": "field_61d5a51924e54",
-                                        "label": "Column Start",
+                                        "ID": 213,
+                                        "key": "field_6193eb9e0e55c",
+                                        "label": "Column start",
                                         "name": "position",
                                         "prefix": "acf",
                                         "type": "select",
@@ -995,13 +995,12 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
                                             "id": ""
                                         },
-                                        "parent_layout": "layout_6193eb13c21da",
                                         "choices": {
                                             "1": "1",
                                             "2": "2",
@@ -1018,6 +1017,7 @@
                                         "return_format": "value",
                                         "ajax": 0,
                                         "placeholder": "",
+                                        "parent_layout": "layout_6193eb13c21da",
                                         "_name": "position",
                                         "_valid": 1
                                     }
@@ -1032,7 +1032,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 195,
+                                        "ID": 228,
                                         "key": "field_619401e6051f7",
                                         "label": "Column start",
                                         "name": "position",
@@ -1045,7 +1045,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -1072,7 +1072,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 196,
+                                        "ID": 229,
                                         "key": "field_61940225051f8",
                                         "label": "Text size",
                                         "name": "size",
@@ -1085,7 +1085,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -1110,7 +1110,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 197,
+                                        "ID": 227,
                                         "key": "field_619401d7051f6",
                                         "label": "Text",
                                         "name": "text",
@@ -1123,7 +1123,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1142,90 +1142,6 @@
                                 "min": "",
                                 "max": ""
                             },
-                            "layout_61cb107c5e505": {
-                                "key": "layout_61cb107c5e505",
-                                "name": "ImageBlock",
-                                "label": "Single Image",
-                                "display": "block",
-                                "sub_fields": [
-                                    {
-                                        "ID": 2299,
-                                        "key": "field_61cb109b5e507",
-                                        "label": "Column start",
-                                        "name": "position",
-                                        "prefix": "acf",
-                                        "type": "select",
-                                        "value": null,
-                                        "menu_order": 0,
-                                        "instructions": "",
-                                        "required": 0,
-                                        "id": "",
-                                        "class": "",
-                                        "conditional_logic": 0,
-                                        "parent": 192,
-                                        "wrapper": {
-                                            "width": "50",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "parent_layout": "layout_61cb107c5e505",
-                                        "choices": {
-                                            "1": "1",
-                                            "2": "2",
-                                            "3": "3",
-                                            "4": "4",
-                                            "5": "5",
-                                            "6": "6",
-                                            "7": "7"
-                                        },
-                                        "default_value": 2,
-                                        "allow_null": 0,
-                                        "multiple": 0,
-                                        "ui": 0,
-                                        "return_format": "value",
-                                        "ajax": 0,
-                                        "placeholder": "",
-                                        "_name": "position",
-                                        "_valid": 1
-                                    },
-                                    {
-                                        "ID": 2451,
-                                        "key": "field_61d5a2f2001e8",
-                                        "label": "Image",
-                                        "name": "image",
-                                        "prefix": "acf",
-                                        "type": "image",
-                                        "value": null,
-                                        "menu_order": 1,
-                                        "instructions": "",
-                                        "required": 0,
-                                        "id": "",
-                                        "class": "",
-                                        "conditional_logic": 0,
-                                        "parent": 192,
-                                        "wrapper": {
-                                            "width": "50",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "parent_layout": "layout_61cb107c5e505",
-                                        "return_format": "array",
-                                        "preview_size": "medium",
-                                        "library": "all",
-                                        "min_width": "",
-                                        "min_height": "",
-                                        "min_size": "",
-                                        "max_width": "",
-                                        "max_height": "",
-                                        "max_size": "",
-                                        "mime_types": "",
-                                        "_name": "image",
-                                        "_valid": 1
-                                    }
-                                ],
-                                "min": "",
-                                "max": ""
-                            },
                             "layout_61940171051f3": {
                                 "key": "layout_61940171051f3",
                                 "name": "CarouselBlock",
@@ -1233,7 +1149,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 198,
+                                        "ID": 230,
                                         "key": "field_61940193051f4",
                                         "label": "Gallery",
                                         "name": "gallery",
@@ -1246,7 +1162,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1270,7 +1186,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 199,
+                                        "ID": 232,
                                         "key": "field_61940318b2391",
                                         "label": "Group",
                                         "name": "group",
@@ -1283,7 +1199,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1316,8 +1232,8 @@
                                 "display": "table",
                                 "sub_fields": [
                                     {
-                                        "ID": 2319,
-                                        "key": "field_61cb1fcd6ed9b",
+                                        "ID": 331,
+                                        "key": "field_61979a2dc8ad1",
                                         "label": "Image",
                                         "name": "image",
                                         "prefix": "acf",
@@ -1329,13 +1245,12 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
-                                            "width": "",
+                                            "width": "50",
                                             "class": "",
                                             "id": ""
                                         },
-                                        "parent_layout": "layout_61979a1dc8ad0",
                                         "return_format": "array",
                                         "preview_size": "medium",
                                         "library": "all",
@@ -1346,13 +1261,14 @@
                                         "max_height": "",
                                         "max_size": "",
                                         "mime_types": "",
+                                        "parent_layout": "layout_61979a1dc8ad0",
                                         "_name": "image",
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 2320,
-                                        "key": "field_61cb1fe86ed9c",
-                                        "label": "Text layer (svg)",
+                                        "ID": 1700,
+                                        "key": "field_61b21c40c9812",
+                                        "label": "Image layer",
                                         "name": "layer",
                                         "prefix": "acf",
                                         "type": "image",
@@ -1363,13 +1279,12 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
-                                            "width": "",
+                                            "width": "50",
                                             "class": "",
                                             "id": ""
                                         },
-                                        "parent_layout": "layout_61979a1dc8ad0",
                                         "return_format": "array",
                                         "preview_size": "medium",
                                         "library": "all",
@@ -1380,227 +1295,9 @@
                                         "max_height": "",
                                         "max_size": "",
                                         "mime_types": "",
+                                        "parent_layout": "layout_61979a1dc8ad0",
                                         "_name": "layer",
                                         "_valid": 1
-                                    },
-                                    {
-                                        "ID": 2295,
-                                        "key": "field_61cb0efd77cce",
-                                        "label": "Sticky",
-                                        "name": "sticky",
-                                        "prefix": "acf",
-                                        "type": "true_false",
-                                        "value": null,
-                                        "menu_order": 2,
-                                        "instructions": "",
-                                        "required": 0,
-                                        "id": "",
-                                        "class": "",
-                                        "conditional_logic": 0,
-                                        "parent": 192,
-                                        "wrapper": {
-                                            "width": "",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "parent_layout": "layout_61979a1dc8ad0",
-                                        "message": "",
-                                        "default_value": 1,
-                                        "ui": 0,
-                                        "ui_on_text": "",
-                                        "ui_off_text": "",
-                                        "_name": "sticky",
-                                        "_valid": 1
-                                    }
-                                ],
-                                "min": "",
-                                "max": ""
-                            },
-                            "layout_61d30a880e4c0": {
-                                "key": "layout_61d30a880e4c0",
-                                "name": "ImgFloatBlock",
-                                "label": "Floating images",
-                                "display": "block",
-                                "sub_fields": [
-                                    {
-                                        "ID": 2567,
-                                        "key": "field_61dd7474628f0",
-                                        "label": "Column start",
-                                        "name": "position",
-                                        "prefix": "acf",
-                                        "type": "select",
-                                        "value": null,
-                                        "menu_order": 0,
-                                        "instructions": "",
-                                        "required": 0,
-                                        "id": "",
-                                        "class": "",
-                                        "conditional_logic": 0,
-                                        "parent": 192,
-                                        "wrapper": {
-                                            "width": "",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "parent_layout": "layout_61d30a880e4c0",
-                                        "choices": {
-                                            "1": "1",
-                                            "2": "2",
-                                            "3": "3",
-                                            "4": "4",
-                                            "5": "5"
-                                        },
-                                        "default_value": 2,
-                                        "allow_null": 0,
-                                        "multiple": 0,
-                                        "ui": 0,
-                                        "return_format": "value",
-                                        "ajax": 0,
-                                        "placeholder": "",
-                                        "_name": "position",
-                                        "_valid": 1
-                                    },
-                                    {
-                                        "ID": 2357,
-                                        "key": "field_61d30aa10e4c1",
-                                        "label": "Items",
-                                        "name": "items",
-                                        "prefix": "acf",
-                                        "type": "repeater",
-                                        "value": null,
-                                        "menu_order": 1,
-                                        "instructions": "",
-                                        "required": 0,
-                                        "id": "",
-                                        "class": "",
-                                        "conditional_logic": 0,
-                                        "parent": 192,
-                                        "wrapper": {
-                                            "width": "",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "parent_layout": "layout_61d30a880e4c0",
-                                        "collapsed": "",
-                                        "min": 1,
-                                        "max": 0,
-                                        "layout": "block",
-                                        "button_label": "",
-                                        "_name": "items",
-                                        "_valid": 1,
-                                        "sub_fields": [
-                                            {
-                                                "ID": 2358,
-                                                "key": "field_61d30ae90e4c5",
-                                                "label": "Type",
-                                                "name": "type",
-                                                "prefix": "acf",
-                                                "type": "select",
-                                                "value": null,
-                                                "menu_order": 0,
-                                                "instructions": "",
-                                                "required": 0,
-                                                "id": "",
-                                                "class": "",
-                                                "conditional_logic": 0,
-                                                "parent": 2357,
-                                                "wrapper": {
-                                                    "width": "33",
-                                                    "class": "",
-                                                    "id": ""
-                                                },
-                                                "choices": {
-                                                    "text": "Text",
-                                                    "image": "Image"
-                                                },
-                                                "default_value": false,
-                                                "allow_null": 0,
-                                                "multiple": 0,
-                                                "ui": 0,
-                                                "return_format": "value",
-                                                "ajax": 0,
-                                                "placeholder": "",
-                                                "_name": "type",
-                                                "_valid": 1
-                                            },
-                                            {
-                                                "ID": 2359,
-                                                "key": "field_61d30ac90e4c3",
-                                                "label": "Text",
-                                                "name": "text",
-                                                "prefix": "acf",
-                                                "type": "wysiwyg",
-                                                "value": null,
-                                                "menu_order": 1,
-                                                "instructions": "",
-                                                "required": 0,
-                                                "id": "",
-                                                "class": "",
-                                                "conditional_logic": [
-                                                    [
-                                                        {
-                                                            "field": "field_61d30ae90e4c5",
-                                                            "operator": "==",
-                                                            "value": "Text"
-                                                        }
-                                                    ]
-                                                ],
-                                                "parent": 2357,
-                                                "wrapper": {
-                                                    "width": "67",
-                                                    "class": "",
-                                                    "id": ""
-                                                },
-                                                "default_value": "",
-                                                "tabs": "all",
-                                                "toolbar": "full",
-                                                "media_upload": 0,
-                                                "delay": 0,
-                                                "_name": "text",
-                                                "_valid": 1
-                                            },
-                                            {
-                                                "ID": 2360,
-                                                "key": "field_61d30ad40e4c4",
-                                                "label": "Image",
-                                                "name": "image",
-                                                "prefix": "acf",
-                                                "type": "image",
-                                                "value": null,
-                                                "menu_order": 2,
-                                                "instructions": "",
-                                                "required": 0,
-                                                "id": "",
-                                                "class": "",
-                                                "conditional_logic": [
-                                                    [
-                                                        {
-                                                            "field": "field_61d30ae90e4c5",
-                                                            "operator": "==",
-                                                            "value": "Image"
-                                                        }
-                                                    ]
-                                                ],
-                                                "parent": 2357,
-                                                "wrapper": {
-                                                    "width": "67",
-                                                    "class": "",
-                                                    "id": ""
-                                                },
-                                                "return_format": "array",
-                                                "preview_size": "medium",
-                                                "library": "all",
-                                                "min_width": "",
-                                                "min_height": "",
-                                                "min_size": "",
-                                                "max_width": "",
-                                                "max_height": "",
-                                                "max_size": "",
-                                                "mime_types": "",
-                                                "_name": "image",
-                                                "_valid": 1
-                                            }
-                                        ]
                                     }
                                 ],
                                 "min": "",
@@ -1613,7 +1310,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 319,
+                                        "ID": 337,
                                         "key": "field_6197a93103d05",
                                         "label": "Video",
                                         "name": "video",
@@ -1626,9 +1323,9 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
-                                            "width": "67",
+                                            "width": "50",
                                             "class": "",
                                             "id": ""
                                         },
@@ -1637,7 +1334,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 320,
+                                        "ID": 342,
                                         "key": "field_6197aa77c4022",
                                         "label": "Column start",
                                         "name": "position",
@@ -1650,13 +1347,12 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
-                                            "width": "33",
+                                            "width": "50",
                                             "class": "",
                                             "id": ""
                                         },
-                                        "parent_layout": "layout_6197a91303d04",
                                         "choices": {
                                             "1": "1",
                                             "2": "2",
@@ -1673,11 +1369,12 @@
                                         "return_format": "value",
                                         "ajax": 0,
                                         "placeholder": "",
+                                        "parent_layout": "layout_6197a91303d04",
                                         "_name": "position",
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 321,
+                                        "ID": 338,
                                         "key": "field_6197a94903d06",
                                         "label": "Titel",
                                         "name": "title",
@@ -1690,7 +1387,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "40",
                                             "class": "",
@@ -1706,7 +1403,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 322,
+                                        "ID": 339,
                                         "key": "field_6197a95703d07",
                                         "label": "Description",
                                         "name": "description",
@@ -1719,7 +1416,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "60",
                                             "class": "",
@@ -1733,109 +1430,6 @@
                                         "parent_layout": "layout_6197a91303d04",
                                         "_name": "description",
                                         "_valid": 1
-                                    },
-                                    {
-                                        "ID": 2558,
-                                        "key": "field_61dd694e027df",
-                                        "label": "Synopsis\/Transcript",
-                                        "name": "details",
-                                        "prefix": "acf",
-                                        "type": "true_false",
-                                        "value": null,
-                                        "menu_order": 4,
-                                        "instructions": "",
-                                        "required": 0,
-                                        "id": "",
-                                        "class": "",
-                                        "conditional_logic": 0,
-                                        "parent": 192,
-                                        "wrapper": {
-                                            "width": "",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "parent_layout": "layout_6197a91303d04",
-                                        "message": "",
-                                        "default_value": 0,
-                                        "ui": 0,
-                                        "ui_on_text": "",
-                                        "ui_off_text": "",
-                                        "_name": "details",
-                                        "_valid": 1
-                                    },
-                                    {
-                                        "ID": 2559,
-                                        "key": "field_61dd69ad027e0",
-                                        "label": "Summary",
-                                        "name": "details_summary",
-                                        "prefix": "acf",
-                                        "type": "text",
-                                        "value": null,
-                                        "menu_order": 5,
-                                        "instructions": "",
-                                        "required": 0,
-                                        "id": "",
-                                        "class": "",
-                                        "conditional_logic": [
-                                            [
-                                                {
-                                                    "field": "field_61dd694e027df",
-                                                    "operator": "==",
-                                                    "value": "1"
-                                                }
-                                            ]
-                                        ],
-                                        "parent": 192,
-                                        "wrapper": {
-                                            "width": "40",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "parent_layout": "layout_6197a91303d04",
-                                        "default_value": "",
-                                        "placeholder": "",
-                                        "prepend": "",
-                                        "append": "",
-                                        "maxlength": "",
-                                        "_name": "details_summary",
-                                        "_valid": 1
-                                    },
-                                    {
-                                        "ID": 2560,
-                                        "key": "field_61dd69b3027e1",
-                                        "label": "Details",
-                                        "name": "details_text",
-                                        "prefix": "acf",
-                                        "type": "wysiwyg",
-                                        "value": null,
-                                        "menu_order": 6,
-                                        "instructions": "",
-                                        "required": 0,
-                                        "id": "",
-                                        "class": "",
-                                        "conditional_logic": [
-                                            [
-                                                {
-                                                    "field": "field_61dd694e027df",
-                                                    "operator": "==",
-                                                    "value": "1"
-                                                }
-                                            ]
-                                        ],
-                                        "parent": 192,
-                                        "wrapper": {
-                                            "width": "60",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "parent_layout": "layout_6197a91303d04",
-                                        "default_value": "",
-                                        "tabs": "all",
-                                        "toolbar": "full",
-                                        "media_upload": 0,
-                                        "delay": 0,
-                                        "_name": "details_text",
-                                        "_valid": 1
                                     }
                                 ],
                                 "min": "",
@@ -1848,7 +1442,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 327,
+                                        "ID": 350,
                                         "key": "field_6197c9cd4d573",
                                         "label": "Titel",
                                         "name": "titel",
@@ -1861,7 +1455,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1877,7 +1471,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 328,
+                                        "ID": 351,
                                         "key": "field_6197c9dd4d574",
                                         "label": "Sections",
                                         "name": "sections",
@@ -1890,7 +1484,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -1906,7 +1500,7 @@
                                         "_valid": 1,
                                         "sub_fields": [
                                             {
-                                                "ID": 329,
+                                                "ID": 352,
                                                 "key": "field_6197c9ed4d575",
                                                 "label": "Section title",
                                                 "name": "title",
@@ -1919,7 +1513,7 @@
                                                 "id": "",
                                                 "class": "",
                                                 "conditional_logic": 0,
-                                                "parent": 328,
+                                                "parent": 351,
                                                 "wrapper": {
                                                     "width": "30",
                                                     "class": "",
@@ -1934,7 +1528,7 @@
                                                 "_valid": 1
                                             },
                                             {
-                                                "ID": 330,
+                                                "ID": 353,
                                                 "key": "field_6197ca004d576",
                                                 "label": "Content",
                                                 "name": "content",
@@ -1947,7 +1541,7 @@
                                                 "id": "",
                                                 "class": "",
                                                 "conditional_logic": 0,
-                                                "parent": 328,
+                                                "parent": 351,
                                                 "wrapper": {
                                                     "width": "70",
                                                     "class": "",
@@ -1974,7 +1568,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 323,
+                                        "ID": 347,
                                         "key": "field_6197c80a26d88",
                                         "label": "Titel",
                                         "name": "title",
@@ -1987,7 +1581,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -2003,7 +1597,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 324,
+                                        "ID": 366,
                                         "key": "field_6197cc323ea6a",
                                         "label": "Column start",
                                         "name": "position",
@@ -2016,7 +1610,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -2043,7 +1637,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 325,
+                                        "ID": 348,
                                         "key": "field_6197c9774d571",
                                         "label": "Description",
                                         "name": "description",
@@ -2056,7 +1650,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -2082,7 +1676,7 @@
                                 "display": "block",
                                 "sub_fields": [
                                     {
-                                        "ID": 1869,
+                                        "ID": 461,
                                         "key": "field_61a658b1a98ef",
                                         "label": "Titel",
                                         "name": "title",
@@ -2095,7 +1689,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -2111,7 +1705,7 @@
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 1870,
+                                        "ID": 462,
                                         "key": "field_61a658c0a98f0",
                                         "label": "Beschreibung",
                                         "name": "description",
@@ -2124,7 +1718,7 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -2150,7 +1744,7 @@
                                 "display": "table",
                                 "sub_fields": [
                                     {
-                                        "ID": 331,
+                                        "ID": 334,
                                         "key": "field_6197a6b97c149",
                                         "label": "Responsive Height",
                                         "name": "height",
@@ -2163,13 +1757,12 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
-                                            "width": "50",
+                                            "width": "",
                                             "class": "",
                                             "id": ""
                                         },
-                                        "parent_layout": "layout_6197a6ae7c148",
                                         "default_value": "",
                                         "placeholder": "",
                                         "prepend": "",
@@ -2177,11 +1770,12 @@
                                         "min": "",
                                         "max": "",
                                         "step": "",
+                                        "parent_layout": "layout_6197a6ae7c148",
                                         "_name": "height",
                                         "_valid": 1
                                     },
                                     {
-                                        "ID": 332,
+                                        "ID": 335,
                                         "key": "field_6197a6ea7c14a",
                                         "label": "Min-height \/ Fixed height",
                                         "name": "min",
@@ -2194,698 +1788,19 @@
                                         "id": "",
                                         "class": "",
                                         "conditional_logic": 0,
-                                        "parent": 192,
+                                        "parent": 211,
                                         "wrapper": {
-                                            "width": "50",
+                                            "width": "",
                                             "class": "",
                                             "id": ""
                                         },
-                                        "parent_layout": "layout_6197a6ae7c148",
                                         "default_value": "",
                                         "placeholder": "",
                                         "prepend": "",
                                         "append": "",
                                         "maxlength": "",
+                                        "parent_layout": "layout_6197a6ae7c148",
                                         "_name": "min",
-                                        "_valid": 1
-                                    },
-                                    {
-                                        "ID": 2291,
-                                        "key": "field_61c60219903e4",
-                                        "label": "Hintergrund",
-                                        "name": "background",
-                                        "prefix": "acf",
-                                        "type": "true_false",
-                                        "value": null,
-                                        "menu_order": 2,
-                                        "instructions": "",
-                                        "required": 0,
-                                        "id": "",
-                                        "class": "",
-                                        "conditional_logic": 0,
-                                        "parent": 192,
-                                        "wrapper": {
-                                            "width": "",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "parent_layout": "layout_6197a6ae7c148",
-                                        "message": "",
-                                        "default_value": 0,
-                                        "ui": 0,
-                                        "ui_on_text": "",
-                                        "ui_off_text": "",
-                                        "_name": "background",
-                                        "_valid": 1
-                                    }
-                                ],
-                                "min": "",
-                                "max": ""
-                            },
-                            "layout_61cb136094007": {
-                                "key": "layout_61cb136094007",
-                                "name": "ExpandingBlock",
-                                "label": "Expander",
-                                "display": "block",
-                                "sub_fields": [
-                                    {
-                                        "ID": 2303,
-                                        "key": "field_61cb136f94008",
-                                        "label": "Titel",
-                                        "name": "title",
-                                        "prefix": "acf",
-                                        "type": "text",
-                                        "value": null,
-                                        "menu_order": 0,
-                                        "instructions": "",
-                                        "required": 0,
-                                        "id": "",
-                                        "class": "",
-                                        "conditional_logic": 0,
-                                        "parent": 192,
-                                        "wrapper": {
-                                            "width": "50",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "parent_layout": "layout_61cb136094007",
-                                        "default_value": "",
-                                        "placeholder": "",
-                                        "prepend": "",
-                                        "append": "",
-                                        "maxlength": "",
-                                        "_name": "title",
-                                        "_valid": 1
-                                    },
-                                    {
-                                        "ID": 2304,
-                                        "key": "field_61cb139094009",
-                                        "label": "Column start",
-                                        "name": "position",
-                                        "prefix": "acf",
-                                        "type": "select",
-                                        "value": null,
-                                        "menu_order": 1,
-                                        "instructions": "",
-                                        "required": 0,
-                                        "id": "",
-                                        "class": "",
-                                        "conditional_logic": 0,
-                                        "parent": 192,
-                                        "wrapper": {
-                                            "width": "50",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "parent_layout": "layout_61cb136094007",
-                                        "choices": {
-                                            "1": "1",
-                                            "2": "2",
-                                            "3": "3",
-                                            "4": "4",
-                                            "5": "5",
-                                            "6": "6",
-                                            "7": "7"
-                                        },
-                                        "default_value": 2,
-                                        "allow_null": 0,
-                                        "multiple": 0,
-                                        "ui": 0,
-                                        "return_format": "value",
-                                        "ajax": 0,
-                                        "placeholder": "",
-                                        "_name": "position",
-                                        "_valid": 1
-                                    },
-                                    {
-                                        "ID": 2305,
-                                        "key": "field_61cb13bd5d560",
-                                        "label": "Inhalt",
-                                        "name": "content",
-                                        "prefix": "acf",
-                                        "type": "flexible_content",
-                                        "value": null,
-                                        "menu_order": 2,
-                                        "instructions": "",
-                                        "required": 0,
-                                        "id": "",
-                                        "class": "",
-                                        "conditional_logic": 0,
-                                        "parent": 192,
-                                        "wrapper": {
-                                            "width": "",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "parent_layout": "layout_61cb136094007",
-                                        "layouts": {
-                                            "layout_61cb159c20e7d": {
-                                                "key": "layout_61cb159c20e7d",
-                                                "name": "TextBlock",
-                                                "label": "Text",
-                                                "display": "block",
-                                                "sub_fields": [
-                                                    {
-                                                        "ID": 2311,
-                                                        "key": "field_61cb15c920e7e",
-                                                        "label": "Column start",
-                                                        "name": "position",
-                                                        "prefix": "acf",
-                                                        "type": "select",
-                                                        "value": null,
-                                                        "menu_order": 0,
-                                                        "instructions": "",
-                                                        "required": 0,
-                                                        "id": "",
-                                                        "class": "",
-                                                        "conditional_logic": 0,
-                                                        "parent": 2305,
-                                                        "wrapper": {
-                                                            "width": "50",
-                                                            "class": "",
-                                                            "id": ""
-                                                        },
-                                                        "parent_layout": "layout_61cb159c20e7d",
-                                                        "choices": {
-                                                            "1": "1",
-                                                            "2": "2",
-                                                            "3": "3",
-                                                            "4": "4",
-                                                            "5": "5",
-                                                            "6": "6",
-                                                            "7": "7"
-                                                        },
-                                                        "default_value": 2,
-                                                        "allow_null": 0,
-                                                        "multiple": 0,
-                                                        "ui": 0,
-                                                        "return_format": "value",
-                                                        "ajax": 0,
-                                                        "placeholder": "",
-                                                        "_name": "position",
-                                                        "_valid": 1
-                                                    },
-                                                    {
-                                                        "ID": 2312,
-                                                        "key": "field_61cb15dd20e7f",
-                                                        "label": "Text size",
-                                                        "name": "size",
-                                                        "prefix": "acf",
-                                                        "type": "select",
-                                                        "value": null,
-                                                        "menu_order": 1,
-                                                        "instructions": "",
-                                                        "required": 0,
-                                                        "id": "",
-                                                        "class": "",
-                                                        "conditional_logic": 0,
-                                                        "parent": 2305,
-                                                        "wrapper": {
-                                                            "width": "50",
-                                                            "class": "",
-                                                            "id": ""
-                                                        },
-                                                        "parent_layout": "layout_61cb159c20e7d",
-                                                        "choices": {
-                                                            "base": "Small",
-                                                            "lg": "Normal",
-                                                            "xl": "Large",
-                                                            "2xl": "Extra large",
-                                                            "4xl": "XX large"
-                                                        },
-                                                        "default_value": "lg",
-                                                        "allow_null": 0,
-                                                        "multiple": 0,
-                                                        "ui": 0,
-                                                        "return_format": "value",
-                                                        "ajax": 0,
-                                                        "placeholder": "",
-                                                        "_name": "size",
-                                                        "_valid": 1
-                                                    },
-                                                    {
-                                                        "ID": 2313,
-                                                        "key": "field_61cb15fe20e80",
-                                                        "label": "Text",
-                                                        "name": "text",
-                                                        "prefix": "acf",
-                                                        "type": "wysiwyg",
-                                                        "value": null,
-                                                        "menu_order": 2,
-                                                        "instructions": "",
-                                                        "required": 0,
-                                                        "id": "",
-                                                        "class": "",
-                                                        "conditional_logic": 0,
-                                                        "parent": 2305,
-                                                        "wrapper": {
-                                                            "width": "",
-                                                            "class": "",
-                                                            "id": ""
-                                                        },
-                                                        "parent_layout": "layout_61cb159c20e7d",
-                                                        "default_value": "",
-                                                        "tabs": "all",
-                                                        "toolbar": "full",
-                                                        "media_upload": 0,
-                                                        "delay": 0,
-                                                        "_name": "text",
-                                                        "_valid": 1
-                                                    }
-                                                ],
-                                                "min": "",
-                                                "max": ""
-                                            },
-                                            "layout_61cb13cd16208": {
-                                                "key": "layout_61cb13cd16208",
-                                                "name": "ImageBlock",
-                                                "label": "Image",
-                                                "display": "block",
-                                                "sub_fields": [
-                                                    {
-                                                        "ID": 2310,
-                                                        "key": "field_61cb153b32c76",
-                                                        "label": "Image",
-                                                        "name": "image",
-                                                        "prefix": "acf",
-                                                        "type": "image",
-                                                        "value": null,
-                                                        "menu_order": 0,
-                                                        "instructions": "",
-                                                        "required": 0,
-                                                        "id": "",
-                                                        "class": "",
-                                                        "conditional_logic": 0,
-                                                        "parent": 2305,
-                                                        "wrapper": {
-                                                            "width": "50",
-                                                            "class": "",
-                                                            "id": ""
-                                                        },
-                                                        "parent_layout": "layout_61cb13cd16208",
-                                                        "return_format": "array",
-                                                        "preview_size": "medium",
-                                                        "library": "all",
-                                                        "min_width": "",
-                                                        "min_height": "",
-                                                        "min_size": "",
-                                                        "max_width": "",
-                                                        "max_height": "",
-                                                        "max_size": "",
-                                                        "mime_types": "",
-                                                        "_name": "image",
-                                                        "_valid": 1
-                                                    },
-                                                    {
-                                                        "ID": 194,
-                                                        "key": "field_61cb14cdf45d7_field_6193eb9e0e55c",
-                                                        "label": "Column start",
-                                                        "name": "position",
-                                                        "prefix": "acf",
-                                                        "type": "select",
-                                                        "value": null,
-                                                        "menu_order": 1,
-                                                        "instructions": "",
-                                                        "required": 0,
-                                                        "id": "",
-                                                        "class": "",
-                                                        "conditional_logic": 0,
-                                                        "parent": 2305,
-                                                        "wrapper": {
-                                                            "width": "50",
-                                                            "class": "",
-                                                            "id": ""
-                                                        },
-                                                        "parent_layout": "layout_61cb13cd16208",
-                                                        "choices": {
-                                                            "1": "1",
-                                                            "2": "2",
-                                                            "3": "3",
-                                                            "4": "4",
-                                                            "5": "5",
-                                                            "6": "6",
-                                                            "7": "7"
-                                                        },
-                                                        "default_value": 2,
-                                                        "allow_null": 0,
-                                                        "multiple": 0,
-                                                        "ui": 0,
-                                                        "ajax": 0,
-                                                        "return_format": "value",
-                                                        "placeholder": "",
-                                                        "_name": "position",
-                                                        "_valid": 1
-                                                    }
-                                                ],
-                                                "min": "",
-                                                "max": ""
-                                            },
-                                            "layout_61dd6e7604598": {
-                                                "key": "layout_61dd6e7604598",
-                                                "name": "ImgFloatBlock",
-                                                "label": "Floating images",
-                                                "display": "block",
-                                                "sub_fields": [
-                                                    {
-                                                        "ID": 2568,
-                                                        "key": "field_61dd7437628ef",
-                                                        "label": "Column start",
-                                                        "name": "position",
-                                                        "prefix": "acf",
-                                                        "type": "select",
-                                                        "value": null,
-                                                        "menu_order": 0,
-                                                        "instructions": "",
-                                                        "required": 0,
-                                                        "id": "",
-                                                        "class": "",
-                                                        "conditional_logic": 0,
-                                                        "parent": 2305,
-                                                        "wrapper": {
-                                                            "width": "",
-                                                            "class": "",
-                                                            "id": ""
-                                                        },
-                                                        "parent_layout": "layout_61dd6e7604598",
-                                                        "choices": {
-                                                            "1": "1",
-                                                            "2": "2",
-                                                            "3": "3",
-                                                            "4": "4",
-                                                            "5": "5"
-                                                        },
-                                                        "default_value": 2,
-                                                        "allow_null": 0,
-                                                        "multiple": 0,
-                                                        "ui": 0,
-                                                        "return_format": "value",
-                                                        "ajax": 0,
-                                                        "placeholder": "",
-                                                        "_name": "position",
-                                                        "_valid": 1
-                                                    },
-                                                    {
-                                                        "ID": 2561,
-                                                        "key": "field_61dd6e9b04599",
-                                                        "label": "Items",
-                                                        "name": "items",
-                                                        "prefix": "acf",
-                                                        "type": "repeater",
-                                                        "value": null,
-                                                        "menu_order": 1,
-                                                        "instructions": "",
-                                                        "required": 0,
-                                                        "id": "",
-                                                        "class": "",
-                                                        "conditional_logic": 0,
-                                                        "parent": 2305,
-                                                        "wrapper": {
-                                                            "width": "",
-                                                            "class": "",
-                                                            "id": ""
-                                                        },
-                                                        "parent_layout": "layout_61dd6e7604598",
-                                                        "collapsed": "",
-                                                        "min": 0,
-                                                        "max": 0,
-                                                        "layout": "block",
-                                                        "button_label": "",
-                                                        "_name": "items",
-                                                        "_valid": 1,
-                                                        "sub_fields": [
-                                                            {
-                                                                "ID": 2562,
-                                                                "key": "field_61dd6ec00459a",
-                                                                "label": "Type",
-                                                                "name": "type",
-                                                                "prefix": "acf",
-                                                                "type": "select",
-                                                                "value": null,
-                                                                "menu_order": 0,
-                                                                "instructions": "",
-                                                                "required": 0,
-                                                                "id": "",
-                                                                "class": "",
-                                                                "conditional_logic": 0,
-                                                                "parent": 2561,
-                                                                "wrapper": {
-                                                                    "width": "33",
-                                                                    "class": "",
-                                                                    "id": ""
-                                                                },
-                                                                "choices": {
-                                                                    "text": "Text",
-                                                                    "image": "Image"
-                                                                },
-                                                                "default_value": false,
-                                                                "allow_null": 0,
-                                                                "multiple": 0,
-                                                                "ui": 0,
-                                                                "return_format": "value",
-                                                                "ajax": 0,
-                                                                "placeholder": "",
-                                                                "_name": "type",
-                                                                "_valid": 1
-                                                            },
-                                                            {
-                                                                "ID": 2563,
-                                                                "key": "field_61dd6ec70459b",
-                                                                "label": "Text",
-                                                                "name": "text",
-                                                                "prefix": "acf",
-                                                                "type": "wysiwyg",
-                                                                "value": null,
-                                                                "menu_order": 1,
-                                                                "instructions": "",
-                                                                "required": 0,
-                                                                "id": "",
-                                                                "class": "",
-                                                                "conditional_logic": [
-                                                                    [
-                                                                        {
-                                                                            "field": "field_61dd6ec00459a",
-                                                                            "operator": "==",
-                                                                            "value": "text"
-                                                                        }
-                                                                    ]
-                                                                ],
-                                                                "parent": 2561,
-                                                                "wrapper": {
-                                                                    "width": "67",
-                                                                    "class": "",
-                                                                    "id": ""
-                                                                },
-                                                                "default_value": "",
-                                                                "tabs": "all",
-                                                                "toolbar": "full",
-                                                                "media_upload": 0,
-                                                                "delay": 0,
-                                                                "_name": "text",
-                                                                "_valid": 1
-                                                            },
-                                                            {
-                                                                "ID": 2564,
-                                                                "key": "field_61dd6ed10459c",
-                                                                "label": "Image",
-                                                                "name": "image",
-                                                                "prefix": "acf",
-                                                                "type": "image",
-                                                                "value": null,
-                                                                "menu_order": 2,
-                                                                "instructions": "",
-                                                                "required": 0,
-                                                                "id": "",
-                                                                "class": "",
-                                                                "conditional_logic": [
-                                                                    [
-                                                                        {
-                                                                            "field": "field_61dd6ec00459a",
-                                                                            "operator": "==",
-                                                                            "value": "image"
-                                                                        }
-                                                                    ]
-                                                                ],
-                                                                "parent": 2561,
-                                                                "wrapper": {
-                                                                    "width": "67",
-                                                                    "class": "",
-                                                                    "id": ""
-                                                                },
-                                                                "return_format": "array",
-                                                                "preview_size": "medium",
-                                                                "library": "all",
-                                                                "min_width": "",
-                                                                "min_height": "",
-                                                                "min_size": "",
-                                                                "max_width": "",
-                                                                "max_height": "",
-                                                                "max_size": "",
-                                                                "mime_types": "",
-                                                                "_name": "image",
-                                                                "_valid": 1
-                                                            }
-                                                        ]
-                                                    }
-                                                ],
-                                                "min": "",
-                                                "max": ""
-                                            },
-                                            "layout_61dd6f56cdf9d": {
-                                                "key": "layout_61dd6f56cdf9d",
-                                                "name": "CarouselBlock",
-                                                "label": "Carousel",
-                                                "display": "block",
-                                                "sub_fields": [
-                                                    {
-                                                        "ID": 2565,
-                                                        "key": "field_61dd6f82cdf9f",
-                                                        "label": "Gallery",
-                                                        "name": "gallery",
-                                                        "prefix": "acf",
-                                                        "type": "gallery",
-                                                        "value": null,
-                                                        "menu_order": 0,
-                                                        "instructions": "",
-                                                        "required": 0,
-                                                        "id": "",
-                                                        "class": "",
-                                                        "conditional_logic": 0,
-                                                        "parent": 2305,
-                                                        "wrapper": {
-                                                            "width": "",
-                                                            "class": "",
-                                                            "id": ""
-                                                        },
-                                                        "parent_layout": "layout_61dd6f56cdf9d",
-                                                        "return_format": "array",
-                                                        "preview_size": "medium",
-                                                        "insert": "append",
-                                                        "library": "all",
-                                                        "min": "",
-                                                        "max": "",
-                                                        "min_width": "",
-                                                        "min_height": "",
-                                                        "min_size": "",
-                                                        "max_width": "",
-                                                        "max_height": "",
-                                                        "max_size": "",
-                                                        "mime_types": "",
-                                                        "_name": "gallery",
-                                                        "_valid": 1
-                                                    },
-                                                    {
-                                                        "ID": 2566,
-                                                        "key": "field_61dd6f6bcdf9e",
-                                                        "label": "Group",
-                                                        "name": "group",
-                                                        "prefix": "acf",
-                                                        "type": "select",
-                                                        "value": null,
-                                                        "menu_order": 1,
-                                                        "instructions": "",
-                                                        "required": 0,
-                                                        "id": "",
-                                                        "class": "",
-                                                        "conditional_logic": 0,
-                                                        "parent": 2305,
-                                                        "wrapper": {
-                                                            "width": "",
-                                                            "class": "",
-                                                            "id": ""
-                                                        },
-                                                        "parent_layout": "layout_61dd6f56cdf9d",
-                                                        "choices": {
-                                                            "1": "1",
-                                                            "2": "2",
-                                                            "3": "3"
-                                                        },
-                                                        "default_value": 1,
-                                                        "allow_null": 0,
-                                                        "multiple": 0,
-                                                        "ui": 0,
-                                                        "return_format": "value",
-                                                        "ajax": 0,
-                                                        "placeholder": "",
-                                                        "_name": "group",
-                                                        "_valid": 1
-                                                    }
-                                                ],
-                                                "min": "",
-                                                "max": ""
-                                            }
-                                        },
-                                        "button_label": "Add Row",
-                                        "min": "",
-                                        "max": "",
-                                        "_name": "content",
-                                        "_valid": 1
-                                    }
-                                ],
-                                "min": "",
-                                "max": ""
-                            },
-                            "layout_61d2e3184897e": {
-                                "key": "layout_61d2e3184897e",
-                                "name": "ButtonBlock",
-                                "label": "Button action",
-                                "display": "block",
-                                "sub_fields": [
-                                    {
-                                        "ID": 2321,
-                                        "key": "field_61d2e3264897f",
-                                        "label": "Text",
-                                        "name": "text",
-                                        "prefix": "acf",
-                                        "type": "text",
-                                        "value": null,
-                                        "menu_order": 0,
-                                        "instructions": "",
-                                        "required": 0,
-                                        "id": "",
-                                        "class": "",
-                                        "conditional_logic": 0,
-                                        "parent": 192,
-                                        "wrapper": {
-                                            "width": "50",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "parent_layout": "layout_61d2e3184897e",
-                                        "default_value": "",
-                                        "placeholder": "",
-                                        "prepend": "",
-                                        "append": "",
-                                        "maxlength": "",
-                                        "_name": "text",
-                                        "_valid": 1
-                                    },
-                                    {
-                                        "ID": 2322,
-                                        "key": "field_61d2e32d48980",
-                                        "label": "Action (URL, #top etc)",
-                                        "name": "action",
-                                        "prefix": "acf",
-                                        "type": "text",
-                                        "value": null,
-                                        "menu_order": 1,
-                                        "instructions": "",
-                                        "required": 0,
-                                        "id": "",
-                                        "class": "",
-                                        "conditional_logic": 0,
-                                        "parent": 192,
-                                        "wrapper": {
-                                            "width": "50",
-                                            "class": "",
-                                            "id": ""
-                                        },
-                                        "parent_layout": "layout_61d2e3184897e",
-                                        "default_value": "",
-                                        "placeholder": "",
-                                        "prepend": "",
-                                        "append": "",
-                                        "maxlength": "",
-                                        "_name": "action",
                                         "_valid": 1
                                     }
                                 ],
@@ -2904,6 +1819,44 @@
                         "__label": "Inhalt Blocks"
                     }
                 ]
+            },
+            {
+                "key": "field_62235b26267de",
+                "label": "Metadata",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_62235b2f267df",
+                "label": "Artist\/Author(s)",
+                "name": "person",
+                "type": "post_object",
+                "instructions": "Optional",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "kuenstler"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 1,
+                "return_format": "object",
+                "ui": 1
             }
         ],
         "location": [
@@ -3318,6 +2271,25 @@
                 "key": "field_61a606075fa85",
                 "label": "Hadas Tapouchi Foto",
                 "name": "foto_id",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_61e87782ec761",
+                "label": "Bildtitel",
+                "name": "foto_titel",
                 "type": "text",
                 "instructions": "",
                 "required": 0,
@@ -4835,6 +3807,72 @@
                                         "label": "Image",
                                         "display": "block",
                                         "sub_fields": [
+                                            {
+                                                "key": "field_61cb13d05d561",
+                                                "label": "Image",
+                                                "name": "ImageBlock",
+                                                "type": "clone",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "clone": [
+                                                    "field_61cb13d05d561"
+                                                ],
+                                                "display": "seamless",
+                                                "layout": "block",
+                                                "prefix_label": 0,
+                                                "prefix_name": 0
+                                            },
+                                            {
+                                                "key": "field_61cb1451a7f70",
+                                                "label": "Image",
+                                                "name": "image",
+                                                "type": "clone",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "clone": [
+                                                    "field_61cb108d5e506",
+                                                    "field_61979a2dc8ad1",
+                                                    "field_61b21c40c9812"
+                                                ],
+                                                "display": "seamless",
+                                                "layout": "block",
+                                                "prefix_label": 0,
+                                                "prefix_name": 0
+                                            },
+                                            {
+                                                "key": "field_61cb14cdf45d7",
+                                                "label": "Image",
+                                                "name": "image",
+                                                "type": "clone",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "clone": [
+                                                    "field_61cb108d5e506",
+                                                    "field_6193eb9e0e55c"
+                                                ],
+                                                "display": "seamless",
+                                                "layout": "block",
+                                                "prefix_label": 0,
+                                                "prefix_name": 0
+                                            },
                                             {
                                                 "key": "field_61cb153b32c76",
                                                 "label": "Image",
