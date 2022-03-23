@@ -494,6 +494,22 @@ add_action('rest_api_init', function () {
     },
     'permission_callback' => '__return_true'
   ));
+  register_rest_route('dn/v1', 'tag/(?P<slug>[a-z0-9]+(?:-[a-z0-9]+)*)', array(
+    'methods' => 'GET',
+    'callback' => function (WP_REST_Request $request) {
+      $slug = $request['slug'];
+      $term = get_term_by('slug', $slug, 'post_tag');
+      $args = array(
+        'numberposts' => 25,
+        'tag__in' => $term->term_id,
+        'post_type' => array('projekte', 'glossar', 'ort', 'person', 'begriff', 'markierung', 'forum')
+      );
+      $posts_by_tag = get_posts($args);
+      $response = new WP_REST_Response($posts_by_tag);
+      return $response;
+    },
+    'args' => array('slug' => array('required' => true))
+  ));
 
   register_rest_field(['forum', 'begriff'], 'comment_count', array(
     'get_callback' => function ($object) {
