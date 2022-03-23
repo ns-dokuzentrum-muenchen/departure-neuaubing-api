@@ -499,13 +499,24 @@ add_action('rest_api_init', function () {
     'callback' => function (WP_REST_Request $request) {
       $slug = $request['slug'];
       $term = get_term_by('slug', $slug, 'post_tag');
+
+      $response = new WP_REST_Response();
+
+      if (!$term) {
+        $response->set_status(404);
+        return $response;
+      }
+
       $args = array(
         'numberposts' => 25,
         'tag__in' => $term->term_id,
-        'post_type' => array('projekte', 'glossar', 'ort', 'person', 'begriff', 'markierung', 'forum')
+        'post_type' => array('projekt', 'glossar', 'ort', 'person', 'begriff', 'markierung', 'forum')
       );
-      $posts_by_tag = get_posts($args);
-      $response = new WP_REST_Response($posts_by_tag);
+      $posts = get_posts($args);
+      $posts = array_map('format_post', $posts);
+
+      $term->posts = $posts;
+      $response->set_data($term);
       return $response;
     },
     'args' => array('slug' => array('required' => true))
