@@ -152,10 +152,14 @@ function default_comments_on ($data, $postarr) {
 add_filter('wp_insert_post_data', 'default_comments_on', 10, 2);
 // add_filter('rest_allow_anonymous_comments', '__return_true');
 
-// allow subscribers to create Upload posts
+// allow subscribers to create upload/begriffe/forum posts
 add_filter('user_has_cap', function ($all, $cap, $args, $user) {
   if (is_user_logged_in() && isset($cap[0]) && $cap[0] == 'edit_posts') {
-    if ($_SERVER['REQUEST_URI'] == '/wp-json/wp/v2/uploads' || $_SERVER['REQUEST_URI'] == '/wp-json/wp/v2/begriffe') {
+    if (
+      $_SERVER['REQUEST_URI'] == '/wp-json/wp/v2/uploads' ||
+      $_SERVER['REQUEST_URI'] == '/wp-json/wp/v2/begriffe' ||
+      $_SERVER['REQUEST_URI'] == '/wp-json/wp/v2/forum'
+    ) {
       if (isset($user->caps['subscriber']) && $user->caps['subscriber']) {
         $all['edit_posts'] = 1;
       }
