@@ -12,6 +12,16 @@ add_filter('get_avatar_url', function ($url, $thing) {
     } else {
       $id = (int) $thing->ID;
     }
+  } elseif (gettype($thing) == 'array') {
+    if ($thing['user_id']) {
+      $id = (int) $thing['user_id'];
+    } else if ($thing['post_author']) {
+      $id = (int) $thing['post_author'];
+    } else if ($thing['author']) {
+      $id = (int) $thing['author'];
+    } else {
+      $id = (int) $thing['ID'];
+    }
   } else {
     $id = (int) $thing;
   }
