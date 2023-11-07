@@ -23,5 +23,6 @@ add_filter('get_avatar_url', function ($url, $thing) {
   // higher zoom level
   $x = 17424 + ($id % 20);
   $y = 11365 + floor($id / 20);
-  return 'https://stamen-tiles-b.a.ssl.fastly.net/toner-background/15/' . $x . '/' . $y . '@2x.png';
+  // return 'https://stamen-tiles-b.a.ssl.fastly.net/toner-background/15/' . $x . '/' . $y . '@2x.png';
+  return 'https://tiles.stadiamaps.com/tiles/stamen-toner/15/' . $x . '/' . $y . '@2x.png';
 }, 10, 2);
