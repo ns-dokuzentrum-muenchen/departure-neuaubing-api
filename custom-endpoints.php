@@ -410,14 +410,14 @@ add_action('rest_api_init', function () {
     $comment_id = (int) $c->comment_ID;
 
     // added by Admin..?
-    if (!$c->comment_author_email) {
-      $hash = hash('sha256', $c->comment_author);
+    // if (!$c->comment_author_email) {
+    //   $hash = hash('sha256', $c->comment_author);
 
-      // Convert a portion of the hash to a number
-      $number = hexdec(substr($hash, 0, 4)); // substr gets first 15 characters of the hash
+    //   // Convert a portion of the hash to a number
+    //   $number = hexdec(substr($hash, 2, 4)); // substr gets first 15 characters of the hash
 
-      $author_id = $number;
-    }
+    //   $author_id = $number;
+    // }
 
     $comment = array(
       'id' => $comment_id,
