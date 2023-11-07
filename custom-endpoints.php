@@ -406,8 +406,19 @@ add_action('rest_api_init', function () {
   ));
 
   function comment_data ($c) {
-    $author_id = (int) $c->author_id;
+    $author_id = (int) $c->user_id;
     $comment_id = (int) $c->comment_ID;
+
+    // added by Admin..?
+    if (!$c->comment_author_email) {
+      $hash = hash('sha256', $c->comment_author);
+
+      // Convert a portion of the hash to a number
+      $number = hexdec(substr($hash, 0, 15)); // substr gets first 15 characters of the hash
+
+      $author_id = $number;
+    }
+
     $comment = array(
       'id' => $comment_id,
       'post' => (int) $c->comment_post_ID,

@@ -26,6 +26,8 @@ add_filter('get_avatar_url', function ($url, $thing) {
     $id = (int) $thing;
   }
 
+
+
   // $x = 2180 + ($id % 20);
   // $y = 1420 + floor($id / 20);
   // return 'https://stamen-tiles-a.a.ssl.fastly.net/toner-background/12/' . $x . '/' . $y . '@2x.png';
