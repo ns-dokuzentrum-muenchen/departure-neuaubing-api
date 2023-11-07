@@ -406,7 +406,7 @@ add_action('rest_api_init', function () {
   ));
 
   function comment_data ($c) {
-    $author_id = (int) $c->user_id;
+    $author_id = (int) $c->author_id;
     $comment_id = (int) $c->comment_ID;
     $comment = array(
       'id' => $comment_id,
@@ -421,7 +421,8 @@ add_action('rest_api_init', function () {
       'author_avatar_url' => get_avatar_url($author_id),
       'status' => 'approved',
       'type' => 'comment',
-      'children' => []
+      'children' => [],
+      'obj' => $c
     );
 
     return $comment;
