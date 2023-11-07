@@ -414,7 +414,7 @@ add_action('rest_api_init', function () {
       $hash = hash('sha256', $c->comment_author);
 
       // Convert a portion of the hash to a number
-      $number = hexdec(substr($hash, 0, 15)); // substr gets first 15 characters of the hash
+      $number = hexdec(substr($hash, 0, 4)); // substr gets first 15 characters of the hash
 
       $author_id = $number;
     }
