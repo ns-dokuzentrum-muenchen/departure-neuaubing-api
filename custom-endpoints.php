@@ -418,7 +418,7 @@ add_action('rest_api_init', function () {
       'date' => get_comment_date('c', $comment_id),
       'content' => apply_filters('the_content', $c->comment_content),
       'link' => get_comment_link($comment_id),
-      'author_avatar_url' => get_avatar_url($author_id),
+      'author_avatar_url' => get_avatar_url($c),
       'status' => 'approved',
       'type' => 'comment',
       'children' => []
