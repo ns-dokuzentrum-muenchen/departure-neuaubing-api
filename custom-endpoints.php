@@ -433,7 +433,7 @@ add_action('rest_api_init', function () {
       'status' => 'approved',
       'type' => 'comment',
       'children' => [],
-      'obj' => $c
+      // 'obj' => $c
     );
 
     return $comment;
